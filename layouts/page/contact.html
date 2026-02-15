@@ -2,7 +2,7 @@
 {{ partial "inner-header.html" . }}
 
 <!-- Contact Info Cards -->
-<section class="py-5">
+<section class="section-padding bg-cream">
   <div class="container">
     <div class="row mb-5 bg-white shadow-sm rounded overflow-hidden">
       <div class="col-md-4">
@@ -31,15 +31,13 @@
       </div>
     </div>
 
-    <!-- Contact Form Placeholder -->
+    <!-- Contact Form -->
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <h4 class="line-bottom mb-4">Send Your Message</h4>
-        <div class="alert alert-info">
-          <i class="bi bi-info-circle me-2"></i>
-          To get in touch with us, please send an email directly to
-          <a href="mailto:{{ .Site.Params.email }}" class="fw-bold">{{ .Site.Params.email }}</a>
-          or call us at <a href="tel:{{ .Site.Params.phone }}" class="fw-bold">{{ .Site.Params.phone }}</a>.
+        <span class="section-tag">Reach Out</span>
+        <h4 class="section-heading mb-4" style="font-size:1.4rem;">Send Your Message</h4>
+        <div class="bg-white rounded shadow-sm p-3 p-md-4">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEnrXJOHM5cMHNyDUWhfj1V72eRMlfPgGfuauOmqZ5UWJtzg/viewform?embedded=true" width="100%" height="689" frameborder="0" marginheight="0" marginwidth="0" style="border:none; border-radius: 8px;">Loading…</iframe>
         </div>
       </div>
     </div>

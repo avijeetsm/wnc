@@ -1,33 +1,63 @@
 {{ define "main" }}
 {{ partial "inner-header.html" . }}
 
-<section class="py-5">
+{{ $allNews := .Pages.ByDate.Reverse }}
+{{ $featured := index $allNews 0 }}
+{{ $rest := after 1 $allNews }}
+
+<!-- Featured / Latest Article -->
+<section class="section-padding bg-cream">
   <div class="container">
-    <h2 class="text-uppercase line-bottom mb-4">Latest <span class="text-theme">News</span></h2>
-    {{ range .Pages.ByDate.Reverse }}
-    <article class="schedule-item mb-4">
-      <div class="row g-0">
-        {{ with .Params.image }}
-        <div class="col-md-4">
-          <img src="{{ . }}" alt="" class="img-fluid">
+    <span class="section-tag">Latest Story</span>
+    <h2 class="section-heading mb-4">Featured Article</h2>
+    <article class="news-featured">
+      <div class="row g-0 align-items-stretch">
+        {{ with $featured.Params.image }}
+        <div class="col-lg-6">
+          <a href="{{ $featured.RelPermalink }}" class="news-featured-img d-block h-100">
+            <img src="{{ . }}" alt="{{ $featured.Title }}">
+          </a>
         </div>
         {{ end }}
-        <div class="{{ if .Params.image }}col-md-8{{ else }}col-12{{ end }} p-4">
-          <div class="d-flex align-items-start mb-2">
-            <div class="date-badge me-3 flex-shrink-0">
-              <div class="day-month">{{ .Date.Format "02 Jan" }}</div>
-              <div class="year">{{ .Date.Format "2006" }}</div>
-            </div>
-            <h4 class="fw-bold mt-1 mb-0">
-              <a href="{{ .RelPermalink }}" class="text-dark text-decoration-none">{{ .Title }}</a>
-            </h4>
+        <div class="col-lg-6">
+          <div class="news-featured-body">
+            <span class="news-featured-date">
+              <i class="bi bi-calendar3 me-1"></i> {{ $featured.Date.Format "02 January 2006" }}
+            </span>
+            <h3><a href="{{ $featured.RelPermalink }}">{{ $featured.Title }}</a></h3>
+            <p>{{ $featured.Summary | plainify | htmlUnescape | truncate 250 }}</p>
+            <a href="{{ $featured.RelPermalink }}" class="btn btn-theme">Read Full Article <i class="bi bi-arrow-right ms-1"></i></a>
           </div>
-          <p class="text-muted mb-2">{{ .Summary }}</p>
-          <a href="{{ .RelPermalink }}" class="btn btn-sm btn-theme">Read More</a>
         </div>
       </div>
     </article>
-    {{ end }}
+  </div>
+</section>
+
+<!-- All News Grid -->
+<section class="section-padding bg-green-light">
+  <div class="container">
+    <span class="section-tag">All Stories</span>
+    <h2 class="section-heading mb-4">News Archive</h2>
+    <div class="row g-4">
+      {{ range $rest }}
+      <div class="col-md-6 col-lg-4">
+        <article class="news-card-v2">
+          {{ with .Params.image }}
+          <a href="{{ $.RelPermalink }}" class="news-card-img">
+            <img src="{{ . }}" alt="{{ $.Title }}">
+            <span class="news-date-overlay">{{ $.Date.Format "02 Jan 2006" }}</span>
+          </a>
+          {{ end }}
+          <div class="news-card-body">
+            <h5><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+            <p>{{ .Summary | plainify | htmlUnescape | truncate 100 }}</p>
+            <a href="{{ .RelPermalink }}" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+      {{ end }}
+    </div>
   </div>
 </section>
 {{ end }}

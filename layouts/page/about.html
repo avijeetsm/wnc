@@ -1,0 +1,82 @@
+{{ define "main" }}
+{{ partial "inner-header.html" . }}
+
+<!-- About Section -->
+<section class="section-padding bg-cream">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <span class="section-tag">Who We Are</span>
+        <h2 class="section-heading">About WNC</h2>
+        <p class="lead-text"><strong>Our ideology is based on Three S &mdash; Sampark, Sahyog and Sanrakshan.</strong></p>
+        <div class="about-pillars mb-4">
+          <div class="about-pillar">
+            <span class="pillar-label">Sampark</span>
+            <p>We establish contacts with the locals and concerned authorities.</p>
+          </div>
+          <div class="about-pillar">
+            <span class="pillar-label">Sahyog</span>
+            <p>To join us or to contribute, come together for a common cause.</p>
+          </div>
+          <div class="about-pillar">
+            <span class="pillar-label">Sanrakshan</span>
+            <p>To preserve or restore our natural heritage.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <img class="about-img rounded" src="https://wncindia.org/images/about/ab1.jpg" alt="About WNC">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What We Do Section -->
+<section class="section-padding bg-green-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-tag">Our Work</span>
+      <h2 class="section-heading">What We Do</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="about-work-card">
+          <div class="about-work-icon"><i class="bi bi-tree-fill"></i></div>
+          <h5>Wildlife Protection</h5>
+          <p>From bird surveys to butterfly censuses, we work to understand and protect wildlife across Central India's forests and habitats.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="about-work-card">
+          <div class="about-work-icon"><i class="bi bi-people-fill"></i></div>
+          <h5>Awareness &amp; Education</h5>
+          <p>We regularly organize lectures, documentaries, photo exhibitions, and workshops in schools and communities to spread conservation awareness.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="about-work-card">
+          <div class="about-work-icon"><i class="bi bi-globe-americas"></i></div>
+          <h5>Habitat Conservation</h5>
+          <p>Wetland conservation, plantation drives, cleanliness campaigns, and environmental monitoring form the core of our on-ground activities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Body -->
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <p>We work with various organizations to understand the distributions, seasonality and abundance of birds. We believe this ideology makes us work in a more disciplined and transparent way.</p>
+        <p>Our projects range from Wildlife protection, Wetland conservation, Awareness drives in rural and urban areas, Plantations and such kind of activities. The organization believes that environmental awareness acts as a watchdog of environmental integrity.</p>
+        <div class="text-center mt-4">
+          <a href="{{ "/team/" | relURL }}" class="btn btn-theme me-2">Meet the Team <i class="bi bi-arrow-right ms-1"></i></a>
+          <a href="{{ "/membership/" | relURL }}" class="btn btn-outline-dark rounded-pill px-4">Join Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

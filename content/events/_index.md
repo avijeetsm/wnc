@@ -1,4 +1,4 @@
 ---
 title: "Events"
-banner: "https://wncindia.org/images/bg1.jpg"
+banner: "https://wncindia.org/backend/plugins/images/Campigns/WNC-Butterfly-Survey-01.jpg"
 ---

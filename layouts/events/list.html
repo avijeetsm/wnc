@@ -1,33 +1,91 @@
 {{ define "main" }}
-{{ partial "inner-header.html" . }}
 
-<section class="py-5">
+<!-- Page Header -->
+{{ $bgImage := .Params.banner | default "https://wncindia.org/images/bg1.jpg" }}
+<section class="page-hero" style="background-image: url('{{ $bgImage }}');">
   <div class="container">
-    <h2 class="text-uppercase line-bottom mb-4">WNC <span class="text-theme">Events</span></h2>
-    {{ range .Pages.ByDate.Reverse }}
-    <article class="schedule-item mb-4">
-      <div class="row g-0">
-        {{ with .Params.image }}
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-2">
+        <li class="breadcrumb-item"><a href="{{ "/" | relURL }}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Events</li>
+      </ol>
+    </nav>
+    <h1>Events</h1>
+    <p class="hero-desc">Surveys, camps, and conservation drives across Central India</p>
+  </div>
+</section>
+
+<section class="section-padding bg-cream">
+  <div class="container">
+
+    {{/* Split into upcoming (future/recent) and past */}}
+    {{ $all := .Pages.ByDate.Reverse }}
+    {{ $upcoming := first 3 $all }}
+    {{ $past := after 3 $all }}
+
+    <!-- Featured / Recent Events -->
+    <div class="mb-5">
+      <span class="section-tag">Upcoming &amp; Recent</span>
+      <h2 class="section-heading mb-4">Featured Events</h2>
+      <div class="row g-4">
+        {{ range $i, $event := $upcoming }}
         <div class="col-md-4">
-          <img src="{{ . }}" alt="" class="img-fluid">
+          <article class="event-card">
+            {{ with $event.Params.image }}
+            <a href="{{ $event.RelPermalink }}" class="event-card-img">
+              <img src="{{ . }}" alt="{{ $event.Title }}">
+              <div class="event-card-date">
+                <span class="day">{{ $event.Date.Format "02" }}</span>
+                <span class="month">{{ $event.Date.Format "Jan" }}</span>
+                <span class="year">{{ $event.Date.Format "2006" }}</span>
+              </div>
+            </a>
+            {{ end }}
+            <div class="event-card-body">
+              <h5><a href="{{ $event.RelPermalink }}">{{ $event.Title }}</a></h5>
+              <p>{{ $event.Summary | plainify | htmlUnescape | truncate 120 }}</p>
+              <a href="{{ $event.RelPermalink }}" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
         </div>
         {{ end }}
-        <div class="{{ if .Params.image }}col-md-8{{ else }}col-12{{ end }} p-4">
-          <div class="d-flex align-items-start mb-2">
-            <div class="event-date-badge me-3 flex-shrink-0">
-              <div class="day">{{ .Date.Format "02" }}</div>
-              <div class="month">{{ .Date.Format "Jan" }}</div>
-            </div>
-            <h4 class="fw-bold mt-1 mb-0">
-              <a href="{{ .RelPermalink }}" class="text-dark text-decoration-none">{{ .Title }}</a>
-            </h4>
-          </div>
-          <p class="text-muted mb-2">{{ .Summary }}</p>
-          <a href="{{ .RelPermalink }}" class="btn btn-sm btn-theme">Read More</a>
-        </div>
       </div>
-    </article>
+    </div>
+
+    <!-- Past Events -->
+    {{ if $past }}
+    <div class="mt-5">
+      <span class="section-tag">Archive</span>
+      <h2 class="section-heading mb-4">Past Events</h2>
+      <div class="row g-4">
+        {{ range $past }}
+        <div class="col-md-6">
+          <article class="event-list-item">
+            <div class="row g-0 align-items-center">
+              {{ with .Params.image }}
+              <div class="col-4">
+                <a href="{{ $.RelPermalink }}" class="event-list-img">
+                  <img src="{{ . }}" alt="{{ $.Title }}">
+                </a>
+              </div>
+              {{ end }}
+              <div class="{{ if .Params.image }}col-8{{ else }}col-12{{ end }}">
+                <div class="event-list-body">
+                  <div class="event-list-date">
+                    <i class="bi bi-calendar3 me-1"></i> {{ .Date.Format "02 Jan 2006" }}
+                  </div>
+                  <h6><a href="{{ .RelPermalink }}">{{ .Title }}</a></h6>
+                  <a href="{{ .RelPermalink }}" class="read-more small">Details <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        {{ end }}
+      </div>
+    </div>
     {{ end }}
+
   </div>
 </section>
 {{ end }}
