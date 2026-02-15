@@ -1,0 +1,48 @@
+{{ define "main" }}
+{{ partial "inner-header.html" . }}
+
+<!-- Contact Info Cards -->
+<section class="py-5">
+  <div class="container">
+    <div class="row mb-5 bg-white shadow-sm rounded overflow-hidden">
+      <div class="col-md-4">
+        <div class="contact-card">
+          <i class="bi bi-telephone"></i>
+          <h4 class="fw-bold">Call Us</h4>
+          <p class="text-theme fw-bold mb-0">
+            Phone: {{ .Site.Params.phone }}<br>
+            {{ .Site.Params.phone2 }}
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-card">
+          <i class="bi bi-geo-alt"></i>
+          <h4 class="fw-bold">Address</h4>
+          <p class="text-theme fw-bold mb-0">{{ .Site.Params.address }}</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-card">
+          <i class="bi bi-envelope"></i>
+          <h4 class="fw-bold">Email</h4>
+          <p class="text-theme fw-bold mb-0">{{ .Site.Params.email2 }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form Placeholder -->
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h4 class="line-bottom mb-4">Send Your Message</h4>
+        <div class="alert alert-info">
+          <i class="bi bi-info-circle me-2"></i>
+          To get in touch with us, please send an email directly to
+          <a href="mailto:{{ .Site.Params.email }}" class="fw-bold">{{ .Site.Params.email }}</a>
+          or call us at <a href="tel:{{ .Site.Params.phone }}" class="fw-bold">{{ .Site.Params.phone }}</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

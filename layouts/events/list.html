@@ -1,0 +1,33 @@
+{{ define "main" }}
+{{ partial "inner-header.html" . }}
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-uppercase line-bottom mb-4">WNC <span class="text-theme">Events</span></h2>
+    {{ range .Pages.ByDate.Reverse }}
+    <article class="schedule-item mb-4">
+      <div class="row g-0">
+        {{ with .Params.image }}
+        <div class="col-md-4">
+          <img src="{{ . }}" alt="" class="img-fluid">
+        </div>
+        {{ end }}
+        <div class="{{ if .Params.image }}col-md-8{{ else }}col-12{{ end }} p-4">
+          <div class="d-flex align-items-start mb-2">
+            <div class="event-date-badge me-3 flex-shrink-0">
+              <div class="day">{{ .Date.Format "02" }}</div>
+              <div class="month">{{ .Date.Format "Jan" }}</div>
+            </div>
+            <h4 class="fw-bold mt-1 mb-0">
+              <a href="{{ .RelPermalink }}" class="text-dark text-decoration-none">{{ .Title }}</a>
+            </h4>
+          </div>
+          <p class="text-muted mb-2">{{ .Summary }}</p>
+          <a href="{{ .RelPermalink }}" class="btn btn-sm btn-theme">Read More</a>
+        </div>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

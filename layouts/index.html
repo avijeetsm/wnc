@@ -1,0 +1,278 @@
+{{ define "main" }}
+
+<!-- ======== HERO CAROUSEL ======== -->
+<section id="home">
+  <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
+    <div class="carousel-inner">
+      {{ range $i, $slide := .Site.Data.slides }}
+      <div class="carousel-item {{ if eq $i 0 }}active{{ end }}" style="background-image: url('{{ $slide.image }}');">
+        <div class="carousel-overlay"></div>
+        <div class="carousel-caption">
+          {{ with $slide.subtitle }}<p class="hero-subtitle">{{ . }}</p>{{ end }}
+          {{ with $slide.heading }}<h1>{{ . }}</h1>{{ end }}
+          {{ with $slide.cta_text }}
+          <a href="{{ $slide.cta_url }}" class="btn btn-hero">{{ . }} <i class="bi bi-arrow-right ms-1"></i></a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    <div class="carousel-indicators">
+      {{ range $i, $slide := .Site.Data.slides }}
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ $i }}" {{ if eq $i 0 }}class="active" aria-current="true"{{ end }}></button>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ======== IMPACT STATS ======== -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <i class="bi bi-megaphone-fill"></i>
+          <span class="stat-number">19+</span>
+          <span class="stat-label">Campaigns</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <i class="bi bi-binoculars-fill"></i>
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Surveys &amp; Drives</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <i class="bi bi-geo-alt-fill"></i>
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Protected Areas</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <i class="bi bi-calendar-check-fill"></i>
+          <span class="stat-number">7+</span>
+          <span class="stat-label">Years Active</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== ABOUT / INTRO ======== -->
+<section class="section-padding" id="about">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0 fade-up">
+        <img src="https://wncindia.org/backend/plugins/images/Campigns/WNC_Plantation_02.jpg" alt="WNC team during a Mission Green plantation drive" class="about-img rounded">
+      </div>
+      <div class="col-lg-6 fade-up">
+        <span class="section-tag">Who We Are</span>
+        <h2 class="section-heading">Wildlife &amp; Nature <br>Conservancy Society</h2>
+        <p>WNC is a nonprofit NGO established with an aim of working towards the cause of nature conservation. Based in Indore, the NGO works actively in the surrounding areas, concentrating on wildlife, environmental issues and creating awareness among the society.</p>
+        <p>Through presentations and campaigns in various institutions we make the coming generation sensitised and encourage them to find innovative solutions and methods to protect and conserve the nature.</p>
+        <a href="{{ "/about/" | relURL }}" class="btn btn-theme">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== MISSION & VISION ======== -->
+<section class="bg-silver section-padding">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-tag">What Drives Us</span>
+      <h2 class="section-heading">Our Mission &amp; Vision</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 fade-up">
+        <div class="mv-card">
+          <div class="mv-icon"><i class="bi bi-bullseye"></i></div>
+          <h4>Our Mission</h4>
+          <p>To make mankind aware about the importance of nature and wildlife in its well being. Conserve wildlife along with its habitats with the help of maintaining existence data and spreading awareness amongst people. In partnership with communities and other organizations, WNC works towards achieving harmonious relationship between human beings and nature.</p>
+        </div>
+      </div>
+      <div class="col-md-6 fade-up">
+        <div class="mv-card">
+          <div class="mv-icon"><i class="bi bi-eye-fill"></i></div>
+          <h4>Our Vision</h4>
+          <p>To conserve the nature and its flora and fauna with the help of dedicated nature warriors. We envision a future where wildlife thrives alongside human communities, where every citizen is a stakeholder in conservation, and where India's rich biodiversity is protected for generations to come.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row g-4 mt-2 justify-content-center">
+      <div class="col-6 col-md-4 col-lg-2 text-center">
+        <div class="focus-icon">
+          <img src="https://wncindia.org/images/WNC_Mission_Green.png" alt="Mission Green">
+          <span>Mission Green</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2 text-center">
+        <div class="focus-icon">
+          <img src="https://wncindia.org/images/WNC_Save_The_Tiger.png" alt="Save The Tiger">
+          <span>Save The Tiger</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2 text-center">
+        <div class="focus-icon">
+          <img src="https://wncindia.org/images/WNC_No_To_Plastic.png" alt="No To Plastic">
+          <span>No To Plastic</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== LATEST NEWS ======== -->
+<section class="section-padding">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-end mb-4">
+      <div>
+        <span class="section-tag">Stay Updated</span>
+        <h2 class="section-heading mb-0">Latest News</h2>
+      </div>
+      <a href="{{ "/news/" | relURL }}" class="btn btn-outline-dark btn-sm d-none d-md-inline-block">View All <i class="bi bi-arrow-right ms-1"></i></a>
+    </div>
+    <div class="row g-4">
+      {{ range $i, $page := first 3 (where .Site.RegularPages "Section" "news") }}
+      <div class="col-md-4">
+        <article class="news-card-v2">
+          {{ with $page.Params.image }}
+          <a href="{{ $page.RelPermalink }}" class="news-card-img">
+            <img src="{{ . }}" alt="{{ $page.Title }}">
+            <span class="news-date-overlay">{{ $page.Date.Format "02 Jan 2006" }}</span>
+          </a>
+          {{ end }}
+          <div class="news-card-body">
+            <h5><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h5>
+            <p>{{ $page.Summary | plainify | htmlUnescape | truncate 100 }}</p>
+            <a href="{{ $page.RelPermalink }}" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+      {{ end }}
+    </div>
+    <div class="text-center mt-4 d-md-none">
+      <a href="{{ "/news/" | relURL }}" class="btn btn-outline-dark btn-sm">View All News <i class="bi bi-arrow-right ms-1"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CAMPAIGNS ======== -->
+<section class="section-padding bg-dark" id="campaigns">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-tag section-tag-light">What We Do</span>
+      <h2 class="section-heading text-white">Our Campaigns</h2>
+    </div>
+    <div class="row g-3">
+      {{ range first 6 .Site.Data.campaigns }}
+      <div class="col-6 col-md-4">
+        <div class="campaign-tile">
+          <img src="{{ .image }}" alt="{{ .name }}">
+          <div class="campaign-tile-overlay">
+            <h6>{{ .name }}</h6>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    <div class="text-center mt-4">
+      <a href="{{ "/#campaigns" | relURL }}" class="btn btn-outline-light btn-sm" data-bs-toggle="collapse" data-bs-target="#moreCampaigns" aria-expanded="false">
+        Show All Campaigns <i class="bi bi-chevron-down ms-1"></i>
+      </a>
+    </div>
+    <div class="collapse mt-3" id="moreCampaigns">
+      <div class="row g-3">
+        {{ range after 6 .Site.Data.campaigns }}
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="campaign-tile">
+            <img src="{{ .image }}" alt="{{ .name }}">
+            <div class="campaign-tile-overlay">
+              <h6>{{ .name }}</h6>
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CTA PARALLAX ======== -->
+<section class="cta-parallax" style="background-image: url('https://wncindia.org/images/BG2.jpg');">
+  <div class="container text-center">
+    <h2 class="text-white mb-3">Partner with us for your CSR activities</h2>
+    <p class="text-white-50 fs-5 mb-4">Be the part of our responsibilities towards nature conservation</p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap">
+      <a href="{{ "/contact/" | relURL }}" class="btn btn-hero">Contact Us</a>
+      <a href="{{ "/donate/" | relURL }}" class="btn btn-outline-light rounded-pill px-4">Donate Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== VIDEOS & EVENTS ======== -->
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <!-- Videos -->
+      <div class="col-lg-7 mb-4">
+        <span class="section-tag">Watch</span>
+        <h2 class="section-heading mb-4">WNC Videos</h2>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="video-responsive">
+              <iframe src="{{ .Site.Params.videos.video1 }}" title="WNC Video 1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="video-responsive">
+              <iframe src="{{ .Site.Params.videos.video2 }}" title="WNC Video 2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+        <a class="btn btn-sm btn-outline-dark mt-3" href="{{ .Site.Params.videos.moreLink }}" target="_blank" rel="noopener">More Videos <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+
+      <!-- Events -->
+      <div class="col-lg-5 mb-4">
+        <span class="section-tag">Upcoming</span>
+        <h2 class="section-heading mb-4">Events</h2>
+        {{ range first 3 (where .Site.RegularPages "Section" "events") }}
+        <div class="event-item">
+          <div class="event-date-badge">
+            <span class="day">{{ .Date.Format "02" }}</span>
+            <span class="month">{{ .Date.Format "Jan" }}</span>
+          </div>
+          <div class="event-info">
+            <h6><a href="{{ .RelPermalink }}">{{ .Title }}</a></h6>
+            <span class="event-year">{{ .Date.Format "2006" }}</span>
+          </div>
+        </div>
+        {{ end }}
+        <a class="btn btn-sm btn-outline-dark mt-2" href="{{ "/events/" | relURL }}">All Events <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== JOIN CTA ======== -->
+<section class="join-cta">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <h3>Join the Wildlife &amp; Nature Conservancy</h3>
+        <p class="mb-lg-0">Become a member and help us protect India's wildlife and natural habitats.</p>
+      </div>
+      <div class="col-lg-4 text-lg-end">
+        <a href="{{ "/membership/" | relURL }}" class="btn btn-light btn-lg rounded-pill px-4 fw-bold">
+          Become a Member <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

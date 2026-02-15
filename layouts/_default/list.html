@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{ partial "inner-header.html" . }}
+
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        {{ .Content }}
+        {{ range .Pages }}
+        <article class="mb-4 pb-4 border-bottom">
+          <h3><a href="{{ .RelPermalink }}" class="text-decoration-none text-dark">{{ .Title }}</a></h3>
+          <p class="text-muted small">{{ .Date.Format "January 02, 2006" }}</p>
+          <p>{{ .Summary }}</p>
+          <a href="{{ .RelPermalink }}" class="btn btn-sm btn-theme">Read More</a>
+        </article>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,99 @@
+baseURL = "https://wnc.avijeet.in/"
+languageCode = "en"
+title = "Wildlife & Nature Conservancy Society | Indore"
+summaryLength = 30
+
+[params]
+  description = "WNC is a nonprofit NGO working towards nature conservation, based in Indore, MP."
+  keywords = "wildlife, nature, conservation, WNC, Indore, bird survey, tiger reserve"
+  phone = "(+91) 9131678295"
+  phone2 = "(+91) 9584884666"
+  email = "ask@wncindia.org"
+  email2 = "wncindore@gmail.com"
+  address = "203, Second Floor, Akansha Trade Centre, Opp-Hotel Omni Palace, Geeta Bhawan, Indore, 452001 MP."
+  registrationNo = "03/27/01/20646/18"
+  logo = "https://wncindia.org/images/W_logo.png"
+  favicon = "https://wncindia.org/images/fevicon/favicon-96x96.png"
+
+  [params.social]
+    facebook = "https://facebook.com/wncindore"
+    youtube = "https://www.youtube.com/channel/UC4uoEwWoKQjyhIhHKUGQi2g"
+    instagram = "https://instagram.com/wncindore"
+
+  [params.videos]
+    video1 = "https://www.youtube.com/embed/NNJsKTD0y3w"
+    video2 = "https://www.youtube.com/embed/AJp8gFSXmSY"
+    moreLink = "https://www.youtube.com/watch?v=AJp8gFSXmSY"
+
+# Main navigation menu
+[[menus.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menus.main]]
+  name = "About Us"
+  url = "#"
+  weight = 2
+  identifier = "about"
+
+[[menus.main]]
+  name = "About Us"
+  url = "/about/"
+  weight = 1
+  parent = "about"
+
+[[menus.main]]
+  name = "Team Members"
+  url = "/team/"
+  weight = 2
+  parent = "about"
+
+[[menus.main]]
+  name = "Our Work"
+  url = "#"
+  weight = 3
+  identifier = "work"
+
+[[menus.main]]
+  name = "Events"
+  url = "/events/"
+  weight = 1
+  parent = "work"
+
+[[menus.main]]
+  name = "News"
+  url = "/news/"
+  weight = 2
+  parent = "work"
+
+[[menus.main]]
+  name = "Media Coverage"
+  url = "/media/"
+  weight = 3
+  parent = "work"
+
+[[menus.main]]
+  name = "Reports"
+  url = "/reports/"
+  weight = 4
+
+[[menus.main]]
+  name = "Contact Us"
+  url = "/contact/"
+  weight = 5
+
+[[menus.main]]
+  name = "Donate Now"
+  url = "/donate/"
+  weight = 6
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  page = ["HTML"]

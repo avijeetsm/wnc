@@ -1,0 +1,75 @@
+- name: "Mission Green"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/WNC_Plantation_02.jpg"
+  galleryId: 2
+
+- name: "Awareness Rally"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/WNC-Cycle-Rally-02.jpg"
+  galleryId: 3
+
+- name: "Bagh banao Bagh bachao"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/WNC_Tiger_Stamping_02.jpg"
+  galleryId: 4
+
+- name: "Photo Exhibition"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/WNC_Exhibition_02.jpg"
+  galleryId: 7
+
+- name: "Wildlife Survey"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/WNC-CBMP-02.jpg"
+  galleryId: 10
+
+- name: "Cleanliness Drive"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/WNC-Cleanliness-Drive-02.jpg"
+  galleryId: 11
+
+- name: "Bird Rescue"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/WNC-Bird-Rescue-02.jpg"
+  galleryId: 12
+
+- name: "Awareness Programme"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/WNC_awareness_programme_02.jpg"
+  galleryId: 13
+
+- name: "Bird Survey Satpura"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/3rd-Satpura-Bird-Survey-01.jpeg"
+  galleryId: 20
+
+- name: "Butterfly Survey"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/WNC-Butterfly-Survey-01.jpg"
+  galleryId: 21
+
+- name: "Kuno Medical Camp"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/Kuno_Medical_Camp_02.jpeg"
+  galleryId: 25
+
+- name: "Satpura Medical Camp"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/Satpura_socio_medical_camp_02.jpeg"
+  galleryId: 27
+
+- name: "Plantation Drive"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/Plantation_at_Natrax_Pithampur_02.jpg"
+  galleryId: 28
+
+- name: "Nature Walk & Bird Watching at Baroda Daulat"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/Nature-Walk_2021_02.jpeg"
+  galleryId: 29
+
+- name: "2nd Kanha Bird Survey"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/Kanha_Bird_Survey_02.jpg"
+  galleryId: 32
+
+- name: "Plantation at Baroda Daulat 2021"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/WNC-Plantation-Baroda-Daula-21-02.jpg"
+  galleryId: 35
+
+- name: "Nature Through Lens-2023"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/04-n.jpg"
+  galleryId: 36
+
+- name: "Bandhawgarh Bird Survey"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/Bandhawgarh_BS_02.jpg"
+  galleryId: 37
+
+- name: "Kanha Tiger Reserve - 7th Bird Survey"
+  image: "https://wncindia.org/backend/plugins/images/Campigns/WhatsApp Image 2024-07-01 at 6.20.29 PM.jpeg"
+  galleryId: 38

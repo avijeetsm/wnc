@@ -1,0 +1,30 @@
+{{ define "main" }}
+{{ partial "inner-header.html" . }}
+
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <article>
+          <div class="d-flex align-items-center mb-3">
+            <div class="date-badge me-3 flex-shrink-0">
+              <div class="day-month">{{ .Date.Format "02 Jan" }}</div>
+              <div class="year">{{ .Date.Format "2006" }}</div>
+            </div>
+            <h2 class="fw-bold mb-0">{{ .Title }}</h2>
+          </div>
+          {{ with .Params.image }}
+          <img src="{{ . }}" alt="" class="img-fluid mb-4 rounded" style="max-height: 500px; width: 100%; object-fit: cover;">
+          {{ end }}
+          <div class="content">
+            {{ .Content }}
+          </div>
+          <div class="mt-4 pt-3 border-top">
+            <a href="{{ "/news/" | relURL }}" class="btn btn-theme"><i class="bi bi-arrow-left me-1"></i> Back to News</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

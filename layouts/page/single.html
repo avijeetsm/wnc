@@ -1,0 +1,9 @@
+{{ define "main" }}
+{{ partial "inner-header.html" . }}
+
+<section class="py-5{{ if .Params.bgSilver }} bg-silver{{ end }}">
+  <div class="container">
+    {{ .Content }}
+  </div>
+</section>
+{{ end }}
