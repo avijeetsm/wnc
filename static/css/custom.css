@@ -46,7 +46,7 @@ a:hover { color: var(--wnc-green); }
 img { max-width: 100%; }
 
 .text-theme { color: var(--wnc-green-light) !important; }
-.bg-silver { background-color: var(--wnc-silver); }
+.text-green-light { color: var(--wnc-green-light) !important; }
 .bg-cream    { background-color: var(--wnc-cream); position: relative; overflow: hidden; }
 .bg-green-light { background-color: var(--wnc-green-bg); position: relative; overflow: hidden; }
 .text-amber  { color: var(--wnc-amber) !important; }
@@ -71,7 +71,6 @@ img { max-width: 100%; }
 /* ---- Section Helpers ---- */
 .section-padding { padding: 80px 0; }
 
-
 .section-tag {
   display: inline-block;
   font-family: 'Raleway', sans-serif;
@@ -90,6 +89,28 @@ img { max-width: 100%; }
   line-height: 1.2;
   margin-bottom: 20px;
   position: relative;
+}
+
+/* ---- Shared card pattern ---- */
+.mv-card,
+.about-work-card,
+.news-card-v2,
+.event-card,
+.event-list-item,
+.report-card,
+.team-member {
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .3s, transform .3s;
+}
+.mv-card:hover,
+.about-work-card:hover,
+.news-card-v2:hover,
+.event-card:hover,
+.event-list-item:hover,
+.report-card:hover,
+.team-member:hover {
+  box-shadow: var(--shadow-md);
 }
 
 /* ---- Buttons ---- */
@@ -131,27 +152,25 @@ img { max-width: 100%; }
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
-
-.btn-outline-theme {
+.btn-hero-outline {
+  background: transparent;
   border: 2px solid #fff;
   color: #fff;
-  background: transparent;
-  border-radius: 50px;
-  padding: 10px 30px;
-  font-weight: 700;
-  font-size: .9rem;
-  letter-spacing: .5px;
-  transition: all .3s;
 }
-.btn-outline-theme:hover {
+.btn-hero-outline:hover {
   background: #fff;
   color: var(--wnc-green);
 }
 
 /* ---- Top Bar ---- */
-.top-bar { font-size: .76rem; letter-spacing: .3px; }
+.top-bar { font-size: .76rem; letter-spacing: .3px; background: var(--wnc-green); }
 .top-bar a { color: rgba(255,255,255,.75); }
 .top-bar a:hover { color: #fff; }
+.btn-topbar {
+  background-color: var(--wnc-amber);
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
 
 /* ---- Navbar ---- */
 .navbar {
@@ -248,7 +267,6 @@ img { max-width: 100%; }
 }
 
 .hero-carousel .carousel-caption h1 {
-  font-family: 'Raleway', sans-serif;
   font-size: 3.8rem;
   font-weight: 900;
   color: #fff;
@@ -278,13 +296,6 @@ img { max-width: 100%; }
 
 .hero-carousel .carousel-control-prev,
 .hero-carousel .carousel-control-next { display: none; }
-
-@media (max-width: 768px) {
-  .hero-carousel .carousel-item { height: 70vh; min-height: 400px; }
-  .hero-carousel .carousel-caption h1 { font-size: 2.2rem; }
-  .hero-carousel .carousel-caption { margin-left: 5%; }
-  .hero-carousel .carousel-indicators { justify-content: center; }
-}
 
 /* ========================================
    IMPACT STATS BAR
@@ -327,11 +338,6 @@ img { max-width: 100%; }
   margin-top: 2px;
 }
 
-@media (max-width: 768px) {
-  .stat-item { padding: 20px 8px; border-right: none; }
-  .stat-number { font-size: 1.5rem; }
-}
-
 /* ========================================
    ABOUT SECTION
    ======================================== */
@@ -341,10 +347,6 @@ img { max-width: 100%; }
   object-fit: cover;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-}
-
-@media (max-width: 768px) {
-  .about-img { height: 260px; }
 }
 
 /* ========================================
@@ -384,17 +386,13 @@ img { max-width: 100%; }
 }
 
 .about-work-card {
-  background: #fff;
   border-radius: var(--radius-lg);
   padding: 32px 28px;
   text-align: center;
-  box-shadow: var(--shadow-sm);
   height: 100%;
   border: 1px solid var(--wnc-border);
-  transition: box-shadow .3s, transform .3s;
 }
 .about-work-card:hover {
-  box-shadow: var(--shadow-md);
   transform: translateY(-3px);
 }
 .about-work-icon {
@@ -425,16 +423,12 @@ img { max-width: 100%; }
    MISSION & VISION CARDS
    ======================================== */
 .mv-card {
-  background: #fff;
   border-radius: var(--radius-lg);
   padding: 36px 32px;
-  box-shadow: var(--shadow-sm);
   height: 100%;
   border: 1px solid var(--wnc-border);
-  transition: box-shadow .3s, transform .3s;
 }
 .mv-card:hover {
-  box-shadow: var(--shadow-md);
   transform: translateY(-3px);
 }
 
@@ -489,7 +483,6 @@ img { max-width: 100%; }
 .focus-icon:hover .focus-icon-circle i {
   color: #fff;
 }
-.focus-icon img { width: 64px; height: 64px; object-fit: contain; margin-bottom: 8px; }
 .focus-icon span {
   display: block;
   font-size: .82rem;
@@ -497,12 +490,6 @@ img { max-width: 100%; }
   color: var(--wnc-heading);
   letter-spacing: .3px;
   margin-top: 4px;
-}
-
-/* ========================================
-   NEWS SECTION
-   ======================================== */
-.news-section {
 }
 
 /* ========================================
@@ -560,26 +547,17 @@ img { max-width: 100%; }
   margin-bottom: 20px;
 }
 
-@media (max-width: 991px) {
-  .news-featured-body { padding: 24px; }
-  .news-featured-img img { min-height: 240px; }
-}
-
 /* ========================================
    NEWS CARDS v2
    ======================================== */
 .news-card-v2 {
-  background: #fff;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow .3s, transform .3s;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 .news-card-v2:hover {
-  box-shadow: var(--shadow-md);
   transform: translateY(-4px);
 }
 
@@ -683,10 +661,6 @@ img { max-width: 100%; }
   font-weight: 700;
   margin: 0;
   text-shadow: 0 1px 4px rgba(0,0,0,.4);
-}
-
-@media (max-width: 768px) {
-  .campaign-tile img { height: 160px; }
 }
 
 /* ========================================
@@ -845,6 +819,17 @@ img { max-width: 100%; }
   font-size: 1rem;
   flex-shrink: 0;
 }
+.donate-icon-circle {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.donate-icon-circle i { font-size: 1.3rem; }
+.donate-icon-circle.amber { background: var(--wnc-amber-bg); }
+.donate-icon-circle.amber i { color: var(--wnc-amber); }
+.donate-icon-circle.green { background: var(--wnc-green-bg); }
+.donate-icon-circle.green i { font-size: 1.2rem; color: var(--wnc-green-light); }
 
 /* ========================================
    SINGLE ARTICLE PAGE
@@ -895,6 +880,8 @@ img { max-width: 100%; }
    FOOTER
    ======================================== */
 footer { font-size: .9rem; }
+.footer-logo { filter: brightness(2); }
+.footer-news-thumb { width: 70px; height: 55px; object-fit: cover; border-radius: 3px; }
 
 footer h5 {
   font-size: 1rem;
@@ -931,79 +918,14 @@ footer a:hover { color: var(--wnc-green-light) !important; }
   transform: translateY(-3px);
 }
 
-/* ========================================
-   INNER PAGE HEADER / BANNER
-   ======================================== */
-.inner-header {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  padding: 100px 0 50px;
-  color: #fff;
-}
-.inner-header::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.65));
-}
-.inner-header .container { position: relative; z-index: 1; }
-.inner-header .breadcrumb { background: transparent; padding: 0; margin: 0; font-size: 1rem; }
-.inner-header .breadcrumb a { color: #fff; text-decoration: none; }
-.inner-header .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,.6); }
-.inner-header .breadcrumb .active { color: var(--wnc-green-light); font-weight: 600; }
-
-/* ========================================
-   EXISTING PAGE STYLES (kept for inner pages)
-   ======================================== */
-
-/* News Cards (list page) */
-.news-card {
-  border: none;
-  background: #fff;
-  box-shadow: var(--shadow-sm);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.news-card img { height: 250px; object-fit: cover; }
-
-/* Schedule / News List Items */
-.schedule-item {
-  background: #fff;
-  border: 1px solid var(--wnc-border);
-  border-radius: var(--radius);
-  margin-bottom: 25px;
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow .3s;
-}
-.schedule-item:hover { box-shadow: var(--shadow-md); }
-.schedule-item img { width: 100%; height: 100%; object-fit: cover; min-height: 220px; }
-.schedule-item .date-badge {
-  background: var(--wnc-amber);
-  color: #fff; text-align: center;
-  padding: 8px 12px; display: inline-block;
-  float: left; margin-right: 15px; border-radius: 3px;
-}
-.schedule-item .date-badge .day-month {
-  font-size: 1.1rem; font-weight: 700;
-  border-bottom: 1px solid rgba(255,255,255,.5);
-  padding-bottom: 3px; text-transform: uppercase;
-}
-.schedule-item .date-badge .year { font-size: .85rem; }
-
 /* Team Members */
 .team-member {
-  background: #fff;
   border-radius: var(--radius-lg);
   padding: 24px;
   margin-bottom: 20px;
-  box-shadow: var(--shadow-sm);
   border: 1px solid var(--wnc-border);
-  transition: box-shadow .3s, transform .3s;
 }
 .team-member:hover {
-  box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 .team-member img {
@@ -1040,9 +962,6 @@ footer a:hover { color: var(--wnc-green-light) !important; }
   transition: color .3s;
 }
 .contact-card:hover i { color: var(--wnc-amber); }
-@media (max-width: 768px) {
-  .contact-card { border-right: none; border-bottom: 1px solid var(--wnc-border); padding: 25px 20px; }
-}
 
 /* Gallery */
 .gallery-grid {
@@ -1152,17 +1071,13 @@ footer a:hover { color: var(--wnc-green-light) !important; }
   display: flex;
   align-items: center;
   gap: 16px;
-  background: #fff;
   border-radius: var(--radius-lg);
   padding: 20px 24px;
   text-decoration: none;
-  box-shadow: var(--shadow-sm);
   border: 1px solid var(--wnc-border);
-  transition: box-shadow .3s, transform .3s;
   height: 100%;
 }
 .report-card:hover {
-  box-shadow: var(--shadow-md);
   transform: translateY(-3px);
 }
 .report-card-icon {
@@ -1205,9 +1120,6 @@ footer a:hover { color: var(--wnc-green-light) !important; }
   color: var(--wnc-green);
 }
 
-/* Donate page */
-.bank-details { background: #fff; border-left: 4px solid var(--wnc-green-light); }
-
 /* ========================================
    PAGE HERO (inner pages)
    ======================================== */
@@ -1230,7 +1142,6 @@ footer a:hover { color: var(--wnc-green-light) !important; }
 .page-hero .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,.4); }
 .page-hero .breadcrumb .active { color: var(--wnc-green-light); }
 .page-hero h1 {
-  font-family: 'Raleway', sans-serif;
   font-size: 2.8rem;
   font-weight: 800;
   margin-bottom: 8px;
@@ -1247,17 +1158,13 @@ footer a:hover { color: var(--wnc-green-light) !important; }
    EVENT CARDS (featured / upcoming)
    ======================================== */
 .event-card {
-  background: #fff;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow .3s, transform .3s;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 .event-card:hover {
-  box-shadow: var(--shadow-md);
   transform: translateY(-4px);
 }
 
@@ -1335,14 +1242,10 @@ footer a:hover { color: var(--wnc-green-light) !important; }
    EVENT LIST ITEMS (past / archive)
    ======================================== */
 .event-list-item {
-  background: #fff;
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow .3s;
   height: 100%;
 }
-.event-list-item:hover { box-shadow: var(--shadow-md); }
 
 .event-list-img img {
   width: 100%;
@@ -1405,13 +1308,26 @@ footer a:hover { color: var(--wnc-green-light) !important; }
 @media (max-width: 991px) {
   .section-padding { padding: 60px 0; }
   .section-heading { font-size: 1.7rem; }
-  .inner-header { padding: 70px 0 40px; }
   .page-hero { padding: 70px 0 40px; }
   .page-hero h1 { font-size: 2rem; }
   .cta-parallax { padding: 70px 0; }
   .cta-parallax h2 { font-size: 1.6rem; }
   .join-cta h3 { font-size: 1.3rem; }
+  .news-featured-body { padding: 24px; }
   .news-featured-body h3 { font-size: 1.25rem; }
+  .news-featured-img img { min-height: 240px; }
+}
+
+@media (max-width: 768px) {
+  .hero-carousel .carousel-item { height: 70vh; min-height: 400px; }
+  .hero-carousel .carousel-caption h1 { font-size: 2.2rem; }
+  .hero-carousel .carousel-caption { margin-left: 5%; }
+  .hero-carousel .carousel-indicators { justify-content: center; }
+  .stat-item { padding: 20px 8px; border-right: none; }
+  .stat-number { font-size: 1.5rem; }
+  .about-img { height: 260px; }
+  .campaign-tile img { height: 160px; }
+  .contact-card { border-right: none; border-bottom: 1px solid var(--wnc-border); padding: 25px 20px; }
 }
 
 @media (max-width: 767px) {
@@ -1422,7 +1338,6 @@ footer a:hover { color: var(--wnc-green-light) !important; }
   .stat-number { font-size: 1.3rem; }
   .stat-label { font-size: .7rem; }
   .about-img { height: 220px; }
-  .focus-icon img { width: 48px; height: 48px; }
   .news-featured-body { padding: 20px; }
   .campaign-tile img { height: 140px; }
   .cta-parallax h2 { font-size: 1.4rem; }
@@ -1431,7 +1346,5 @@ footer a:hover { color: var(--wnc-green-light) !important; }
   .report-card-icon { width: 44px; height: 44px; }
   .report-card-icon i { font-size: 1.2rem; }
   .about-pillar { padding: 10px 14px; }
-
-  /* Stack event list items vertically on mobile */
   .event-list-img img { height: 120px; }
 }
