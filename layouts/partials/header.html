@@ -32,22 +32,36 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="mainNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav align-items-lg-center">
         {{ range .Site.Menus.main }}
           {{ if .HasChildren }}
+            {{/* Check if any child is active */}}
+            {{ $parentActive := false }}
+            {{ range .Children }}
+              {{ if eq ($.RelPermalink) .URL }}{{ $parentActive = true }}{{ end }}
+            {{ end }}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle{{ if $parentActive }} active-pill{{ end }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ .Name }}
               </a>
               <ul class="dropdown-menu">
                 {{ range .Children }}
-                  <li><a class="dropdown-item" href="{{ .URL }}">{{ .Name }}</a></li>
+                  <li><a class="dropdown-item{{ if eq ($.RelPermalink) .URL }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a></li>
                 {{ end }}
               </ul>
             </li>
+          {{ else if eq .Name "Donate Now" }}
+            <li class="nav-item ms-lg-2">
+              <a class="btn btn-donate-nav" href="{{ .URL }}">
+                <i class="bi bi-heart-fill me-1"></i>{{ .Name }}
+              </a>
+            </li>
           {{ else }}
+            {{ $isActive := false }}
+            {{ if and ($.IsHome) (eq .URL "/") }}{{ $isActive = true }}{{ end }}
+            {{ if and (not $.IsHome) (hasPrefix $.RelPermalink .URL) (ne .URL "/") }}{{ $isActive = true }}{{ end }}
             <li class="nav-item">
-              <a class="nav-link{{ if and ($.IsHome) (eq .URL "/") }} active-pill{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+              <a class="nav-link{{ if $isActive }} active-pill{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
             </li>
           {{ end }}
         {{ end }}

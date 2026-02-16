@@ -1,19 +1,6 @@
 {{ define "main" }}
 
-<!-- Page Header -->
-{{ $bgImage := .Params.banner | default "https://wncindia.org/images/bg1.jpg" }}
-<section class="page-hero" style="background-image: url('{{ $bgImage }}');">
-  <div class="container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb mb-2">
-        <li class="breadcrumb-item"><a href="{{ "/" | relURL }}">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Events</li>
-      </ol>
-    </nav>
-    <h1>Events</h1>
-    <p class="hero-desc">Surveys, camps, and conservation drives across Central India</p>
-  </div>
-</section>
+{{ partial "inner-header.html" . }}
 
 <section class="section-padding bg-cream">
   <div class="container">
@@ -29,7 +16,7 @@
       <h2 class="section-heading mb-4">Featured Events</h2>
       <div class="row g-4">
         {{ range $i, $event := $upcoming }}
-        <div class="col-md-4">
+        <div class="col-md-4 fade-up">
           <article class="event-card">
             {{ with $event.Params.image }}
             <a href="{{ $event.RelPermalink }}" class="event-card-img">
@@ -59,7 +46,7 @@
       <h2 class="section-heading mb-4">Past Events</h2>
       <div class="row g-4">
         {{ range $past }}
-        <div class="col-md-6">
+        <div class="col-md-6 fade-up">
           <article class="event-list-item">
             <div class="row g-0 align-items-center">
               {{ with .Params.image }}

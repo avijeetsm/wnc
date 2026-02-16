@@ -102,23 +102,35 @@
         </div>
       </div>
     </div>
-    <div class="row g-4 mt-2 justify-content-center">
-      <div class="col-6 col-md-4 col-lg-2 text-center">
+    <div class="row g-4 mt-3 justify-content-center">
+      <div class="col-6 col-md-4 col-lg-2 text-center fade-up">
         <div class="focus-icon">
-          <img src="https://wncindia.org/images/WNC_Mission_Green.png" alt="Mission Green">
+          <div class="focus-icon-circle"><i class="bi bi-tree-fill"></i></div>
           <span>Mission Green</span>
         </div>
       </div>
-      <div class="col-6 col-md-4 col-lg-2 text-center">
+      <div class="col-6 col-md-4 col-lg-2 text-center fade-up">
         <div class="focus-icon">
-          <img src="https://wncindia.org/images/WNC_Save_The_Tiger.png" alt="Save The Tiger">
+          <div class="focus-icon-circle"><i class="bi bi-shield-fill-check"></i></div>
           <span>Save The Tiger</span>
         </div>
       </div>
-      <div class="col-6 col-md-4 col-lg-2 text-center">
+      <div class="col-6 col-md-4 col-lg-2 text-center fade-up">
         <div class="focus-icon">
-          <img src="https://wncindia.org/images/WNC_No_To_Plastic.png" alt="No To Plastic">
+          <div class="focus-icon-circle"><i class="bi bi-x-octagon-fill"></i></div>
           <span>No To Plastic</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2 text-center fade-up">
+        <div class="focus-icon">
+          <div class="focus-icon-circle"><i class="bi bi-water"></i></div>
+          <span>Water Bodies</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2 text-center fade-up">
+        <div class="focus-icon">
+          <div class="focus-icon-circle"><i class="bi bi-people-fill"></i></div>
+          <span>Awareness</span>
         </div>
       </div>
     </div>
@@ -187,7 +199,7 @@
     <div class="collapse mt-3" id="moreCampaigns">
       <div class="row g-3">
         {{ range after 6 .Site.Data.campaigns }}
-        <div class="col-6 col-md-4 col-lg-3">
+        <div class="col-6 col-md-4">
           <div class="campaign-tile">
             <img src="{{ .image }}" alt="{{ .name }}">
             <div class="campaign-tile-overlay">

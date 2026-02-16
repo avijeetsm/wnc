@@ -1,12 +1,16 @@
-{{/* Inner page banner with parallax effect and breadcrumb */}}
+{{/* Inner page banner with title, breadcrumb, and optional description */}}
 {{ $bgImage := .Params.banner | default "https://wncindia.org/images/bg1.jpg" }}
-<section class="inner-header" style="background-image: url('{{ $bgImage }}');">
-  <div class="container pt-5">
+<section class="page-hero" style="background-image: url('{{ $bgImage }}');">
+  <div class="container">
     <nav aria-label="breadcrumb">
-      <ol class="breadcrumb mb-0">
+      <ol class="breadcrumb mb-2">
         <li class="breadcrumb-item"><a href="{{ "/" | relURL }}">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
       </ol>
     </nav>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.description }}
+    <p class="hero-desc">{{ . }}</p>
+    {{ end }}
   </div>
 </section>

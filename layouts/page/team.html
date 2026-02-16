@@ -8,7 +8,7 @@
       <h2 class="section-heading">Nature Warriors</h2>
     </div>
     {{ range .Site.Data.team }}
-    <div class="team-member">
+    <div class="team-member fade-up">
       <div class="row align-items-start">
         <div class="col-md-2 text-center mb-3 mb-md-0">
           <img src="{{ .photo }}" alt="{{ .name }}" class="img-fluid">
@@ -21,6 +21,18 @@
       </div>
     </div>
     {{ end }}
+  </div>
+</section>
+
+<!-- Join CTA -->
+<section class="section-padding bg-green-light">
+  <div class="container text-center">
+    <span class="section-tag">Get Involved</span>
+    <h2 class="section-heading mb-3">Become a Nature Warrior</h2>
+    <p class="mb-4" style="max-width: 600px; margin: 0 auto;">Join our passionate team and contribute to wildlife conservation, habitat protection, and environmental awareness across Central India.</p>
+    <a href="{{ "/membership/" | relURL }}" class="btn btn-theme btn-lg px-4">
+      <i class="bi bi-people-fill me-2"></i>Join WNC
+    </a>
   </div>
 </section>
 {{ end }}

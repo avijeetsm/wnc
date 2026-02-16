@@ -3,6 +3,7 @@ title: "Reports"
 type: "page"
 layout: "single"
 banner: "https://wncindia.org/backend/plugins/images/Campigns/WNC-CBMP-02.jpg"
+description: "Detailed findings from our wildlife surveys and conservation projects"
 ---
 
 <div class="mb-4">

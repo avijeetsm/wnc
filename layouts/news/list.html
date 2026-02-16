@@ -10,7 +10,7 @@
   <div class="container">
     <span class="section-tag">Latest Story</span>
     <h2 class="section-heading mb-4">Featured Article</h2>
-    <article class="news-featured">
+    <article class="news-featured fade-up">
       <div class="row g-0 align-items-stretch">
         {{ with $featured.Params.image }}
         <div class="col-lg-6">
@@ -41,7 +41,7 @@
     <h2 class="section-heading mb-4">News Archive</h2>
     <div class="row g-4">
       {{ range $rest }}
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4 fade-up">
         <article class="news-card-v2">
           {{ with .Params.image }}
           <a href="{{ $.RelPermalink }}" class="news-card-img">

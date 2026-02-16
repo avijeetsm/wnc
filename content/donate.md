@@ -1,9 +1,9 @@
 ---
 title: "Donate"
 type: "page"
-layout: "single"
-bgSilver: true
+layout: "donate"
 banner: "https://wncindia.org/images/BG2.jpg"
+description: "Support wildlife conservation with your generous contribution"
 ---
 
 <div class="row">

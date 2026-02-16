@@ -9,10 +9,8 @@
         <div class="contact-card">
           <i class="bi bi-telephone"></i>
           <h4 class="fw-bold">Call Us</h4>
-          <p class="text-theme fw-bold mb-0">
-            Phone: {{ .Site.Params.phone }}<br>
-            {{ .Site.Params.phone2 }}
-          </p>
+          <p class="text-theme fw-bold mb-1"><a href="tel:{{ .Site.Params.phone }}" class="text-decoration-none" style="color: inherit;">{{ .Site.Params.phone }}</a></p>
+          <p class="text-theme fw-bold mb-0"><a href="tel:{{ .Site.Params.phone2 }}" class="text-decoration-none" style="color: inherit;">{{ .Site.Params.phone2 }}</a></p>
         </div>
       </div>
       <div class="col-md-4">
