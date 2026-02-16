@@ -6,6 +6,7 @@
     <div class="carousel-inner">
       {{ range $i, $slide := .Site.Data.slides }}
       <div class="carousel-item {{ if eq $i 0 }}active{{ end }}" style="background-image: url('{{ $slide.image }}');">
+        {{ if or $slide.heading $slide.subtitle $slide.cta_text }}
         <div class="carousel-overlay"></div>
         <div class="carousel-caption">
           {{ with $slide.subtitle }}<p class="hero-subtitle">{{ . }}</p>{{ end }}
@@ -14,6 +15,7 @@
           <a href="{{ $slide.cta_url }}" class="btn btn-hero">{{ . }} <i class="bi bi-arrow-right ms-1"></i></a>
           {{ end }}
         </div>
+        {{ end }}
       </div>
       {{ end }}
     </div>
