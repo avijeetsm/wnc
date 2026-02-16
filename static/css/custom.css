@@ -472,7 +472,8 @@ img { max-width: 100%; }
   transition: background .3s, transform .3s;
   border: 2px solid rgba(26,58,40,.1);
 }
-.focus-icon-circle i {
+.focus-icon-circle i,
+.focus-icon-circle .focus-paw {
   font-size: 1.6rem;
   color: var(--wnc-green);
 }
@@ -480,7 +481,8 @@ img { max-width: 100%; }
   background: var(--wnc-green);
   transform: scale(1.08);
 }
-.focus-icon:hover .focus-icon-circle i {
+.focus-icon:hover .focus-icon-circle i,
+.focus-icon:hover .focus-icon-circle .focus-paw {
   color: #fff;
 }
 .focus-icon span {
