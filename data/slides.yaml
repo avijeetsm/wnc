@@ -1,3 +1,9 @@
+- image: "https://wncindia.org/images/bg0.jpg"
+  heading: "For the Green Planet"
+  subtitle: "Conserving wildlife and nature across Central India"
+  cta_text: "Learn More"
+  cta_url: "/about/"
+
 - image: "https://wncindia.org/images/BG2.jpg"
   heading: "Protecting Wildlife"
   subtitle: "One step at a time"

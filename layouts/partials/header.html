@@ -16,7 +16,7 @@
         <a href="{{ .Site.Params.social.facebook }}" class="text-white text-decoration-none me-2" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
         <a href="{{ .Site.Params.social.youtube }}" class="text-white text-decoration-none me-2" target="_blank" rel="noopener"><i class="bi bi-youtube"></i></a>
         <a href="{{ .Site.Params.social.instagram }}" class="text-white text-decoration-none me-3" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
-        <a href="{{ "/membership/" | relURL }}" class="btn btn-sm text-white fw-bold px-3" style="background-color: var(--wnc-amber); font-size: 0.75rem; letter-spacing: 0.5px;">JOIN NOW</a>
+        <a href="{{ "/membership/" | relURL }}" class="btn btn-sm text-white fw-bold px-3" style="background-color: var(--wnc-amber); font-size: 0.75rem; letter-spacing: 0.5px;">Become a Member</a>
       </div>
     </div>
   </div>
@@ -50,7 +50,7 @@
                 {{ end }}
               </ul>
             </li>
-          {{ else if eq .Name "Donate Now" }}
+          {{ else if eq .Name "Donate" }}
             <li class="nav-item ms-lg-2">
               <a class="btn btn-donate-nav" href="{{ .URL }}">
                 <i class="bi bi-heart-fill me-1"></i>{{ .Name }}
