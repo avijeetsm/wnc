@@ -46,7 +46,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "https://wnc.avijeet.in/"
+            --baseURL "https://new.wncindia.org/"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
