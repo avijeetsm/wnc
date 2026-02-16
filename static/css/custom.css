@@ -148,7 +148,9 @@ img { max-width: 100%; }
 }
 
 /* ---- Top Bar ---- */
-.top-bar { font-size: .82rem; letter-spacing: .3px; }
+.top-bar { font-size: .76rem; letter-spacing: .3px; }
+.top-bar a { color: rgba(255,255,255,.75); }
+.top-bar a:hover { color: #fff; }
 
 /* ---- Navbar ---- */
 .navbar {
@@ -205,6 +207,8 @@ img { max-width: 100%; }
 }
 .dropdown-item { font-size: .85rem; padding: 8px 20px; font-weight: 500; }
 .dropdown-item:hover { background: var(--wnc-green-light); color: #fff; }
+.dropdown-item.active,
+.dropdown-item:active { background: var(--wnc-green-light); color: #fff; }
 
 /* ========================================
    HERO CAROUSEL
@@ -629,6 +633,7 @@ img { max-width: 100%; }
   font-size: .88rem;
   color: #777;
   flex: 1;
+  margin-bottom: 12px;
 }
 
 .read-more {
@@ -637,6 +642,7 @@ img { max-width: 100%; }
   text-decoration: none;
   color: var(--wnc-green-light);
   letter-spacing: .3px;
+  margin-top: auto;
 }
 .read-more:hover { color: var(--wnc-green); }
 .read-more i { transition: transform .2s; }
@@ -794,6 +800,8 @@ img { max-width: 100%; }
   font-size: .88rem;
   color: var(--wnc-heading);
   transition: transform .2s, background .2s;
+  flex: 1 1 calc(50% - 12px);
+  min-width: 180px;
 }
 .donate-highlight:hover {
   transform: translateY(-2px);
@@ -1015,10 +1023,14 @@ footer a:hover { color: var(--wnc-green-light) !important; }
   text-align: center; padding: 40px 20px;
   border-right: 1px solid var(--wnc-border);
   transition: background .3s, transform .3s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .contact-card:hover {
   background: var(--wnc-green-bg);
-  transform: translateY(-2px);
 }
 .contact-card:last-child { border-right: none; }
 .contact-card i {
@@ -1038,12 +1050,14 @@ footer a:hover { color: var(--wnc-green-light) !important; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 12px;
+  align-items: stretch;
 }
 .gallery-grid img {
-  width: 100%; height: 250px; object-fit: cover;
+  width: 100%; height: 260px; object-fit: cover;
   cursor: pointer; border-radius: var(--radius);
   transition: opacity .3s, transform .3s, box-shadow .3s;
   box-shadow: var(--shadow-sm);
+  background: var(--wnc-green-bg);
 }
 .gallery-grid img:hover {
   opacity: .95;
@@ -1315,6 +1329,7 @@ footer a:hover { color: var(--wnc-green-light) !important; }
   font-size: .88rem;
   color: #777;
   flex: 1;
+  margin-bottom: 12px;
 }
 
 /* ========================================
@@ -1352,6 +1367,10 @@ footer a:hover { color: var(--wnc-green-light) !important; }
   font-size: .92rem;
   line-height: 1.35;
   margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .event-list-body h6 a {
   color: var(--wnc-heading);

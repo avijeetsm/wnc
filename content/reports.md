@@ -16,7 +16,7 @@ description: "Detailed findings from our wildlife surveys and conservation proje
 
 <div class="col-md-6">
 <a href="https://1drv.ms/b/c/1099719219338975/EZj8Aw25CINCv0u_YwrId7IBk_wNl1OFL7Zs5SLjVJunkg?e=gKYdA5" target="_blank" rel="noopener" class="report-card">
-<div class="report-card-icon"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+<div class="report-card-icon"><i class="bi bi-binoculars-fill"></i></div>
 <div class="report-card-body">
 <h5>Kanha Tiger Reserve - Bird Survey</h5>
 <span class="report-card-meta">2024 Summer</span>
@@ -27,7 +27,7 @@ description: "Detailed findings from our wildlife surveys and conservation proje
 
 <div class="col-md-6">
 <a href="https://1drv.ms/b/c/1099719219338975/Eb0g6tUpDdVNpws4QnKIAFwBY-9Q7DyM67WOuqIC6h1aIg?e=RWbHPZ" target="_blank" rel="noopener" class="report-card">
-<div class="report-card-icon"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+<div class="report-card-icon"><i class="bi bi-binoculars-fill"></i></div>
 <div class="report-card-body">
 <h5>Bandhavgarh Tiger Reserve - Bird Survey</h5>
 <span class="report-card-meta">2024 Summer</span>
@@ -38,7 +38,7 @@ description: "Detailed findings from our wildlife surveys and conservation proje
 
 <div class="col-md-6">
 <a href="https://1drv.ms/b/s!AnWJMxmScZkQjr5oVpJ8RAOGpknZEA" target="_blank" rel="noopener" class="report-card">
-<div class="report-card-icon"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+<div class="report-card-icon"><i class="bi bi-binoculars-fill"></i></div>
 <div class="report-card-body">
 <h5>Bandhavgarh Tiger Reserve - Bird Survey</h5>
 <span class="report-card-meta">2024 Winter</span>
@@ -49,7 +49,7 @@ description: "Detailed findings from our wildlife surveys and conservation proje
 
 <div class="col-md-6">
 <a href="https://1drv.ms/b/s!AnWJMxmScZkQjr5pRv6pZt42xuidQQ" target="_blank" rel="noopener" class="report-card">
-<div class="report-card-icon"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+<div class="report-card-icon"><i class="bi bi-binoculars-fill"></i></div>
 <div class="report-card-body">
 <h5>Kanha Tiger Reserve - Bird Survey</h5>
 <span class="report-card-meta">2023 Winter &amp; Summer</span>
@@ -60,7 +60,7 @@ description: "Detailed findings from our wildlife surveys and conservation proje
 
 <div class="col-md-6">
 <a href="https://1drv.ms/b/s!AnWJMxmScZkQjr5nt-C5Qrvn7FfUpA" target="_blank" rel="noopener" class="report-card">
-<div class="report-card-icon"><i class="bi bi-butterfly-fill"></i></div>
+<div class="report-card-icon"><i class="bi bi-flower1"></i></div>
 <div class="report-card-body">
 <h5>Sanjay-Dubri Tiger Reserve - Butterfly Survey</h5>
 <span class="report-card-meta">2023 October</span>

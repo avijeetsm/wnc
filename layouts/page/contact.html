@@ -4,7 +4,7 @@
 <!-- Contact Info Cards -->
 <section class="section-padding bg-cream">
   <div class="container">
-    <div class="row mb-5 bg-white shadow-sm rounded overflow-hidden">
+    <div class="row bg-white shadow-sm rounded overflow-hidden">
       <div class="col-md-4">
         <div class="contact-card">
           <i class="bi bi-telephone"></i>
@@ -28,17 +28,26 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Contact Form -->
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <span class="section-tag">Reach Out</span>
-        <h4 class="section-heading mb-4" style="font-size:1.4rem;">Send Your Message</h4>
-        <div class="bg-white rounded shadow-sm p-3 p-md-4">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEnrXJOHM5cMHNyDUWhfj1V72eRMlfPgGfuauOmqZ5UWJtzg/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" style="border:none; border-radius: 8px; overflow:hidden;">Loading…</iframe>
+<!-- Contact Form -->
+<section class="section-padding bg-green-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 fade-up">
+        <div class="text-center mb-4">
+          <span class="section-tag">Reach Out</span>
+          <h2 class="section-heading">Send Your Message</h2>
+          <p class="text-muted">Have a question or want to get involved? Drop us a message and we'll get back to you.</p>
+        </div>
+        <div class="bg-white rounded shadow-sm px-4 pb-4 pt-2 px-md-5 pb-md-5 pt-md-2">
+          <iframe data-tally-src="https://tally.so/embed/BzX4Ye?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="657" frameborder="0" marginheight="0" marginwidth="0" title="Send your message" style="border:none;"></iframe>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
 {{ end }}
