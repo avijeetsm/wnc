@@ -38,7 +38,7 @@ summaryLength = 30
   identifier = "about"
 
 [[menus.main]]
-  name = "About Us"
+  name = "About WNC"
   url = "/about/"
   weight = 1
   parent = "about"
