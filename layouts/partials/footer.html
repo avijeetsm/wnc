@@ -5,7 +5,7 @@
 
       <!-- Column 1: Contact Info -->
       <div class="col-lg-4 mb-4">
-        <img src="{{ .Site.Params.logo }}" alt="WNC India" height="50" class="mb-3 footer-logo">
+        {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .Site.Params.logo) "alt" "WNC India" "class" "mb-3 footer-logo" "style" "height: 50px;" "width" 200) }}
         <p class="small text-secondary mb-1" style="line-height: 1.7;">
           <a href="#" class="text-decoration-none text-green-light">Reg. No: {{ .Site.Params.registrationNo }}</a>
         </p>
@@ -29,7 +29,7 @@
         <article class="d-flex mb-3">
           {{ with .Params.image }}
           <a href="{{ $.RelPermalink }}" class="me-3 flex-shrink-0">
-            <img src="{{ . }}" alt="" class="footer-news-thumb">
+            {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" "" "class" "footer-news-thumb" "width" 100) }}
           </a>
           {{ end }}
           <div>

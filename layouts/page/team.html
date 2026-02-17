@@ -11,7 +11,7 @@
     <div class="team-member fade-up">
       <div class="row align-items-start">
         <div class="col-md-2 text-center mb-3 mb-md-0">
-          <img src="{{ .photo }}" alt="{{ .name }}" class="img-fluid">
+          {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .photo) "alt" .name "class" "img-fluid" "width" 200) }}
         </div>
         <div class="col-md-10">
           <h4 class="mb-0">{{ .name }}</h4>

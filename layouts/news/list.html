@@ -15,7 +15,7 @@
         {{ with $featured.Params.image }}
         <div class="col-lg-6">
           <a href="{{ $featured.RelPermalink }}" class="news-featured-img d-block h-100">
-            <img src="{{ . }}" alt="{{ $featured.Title }}">
+            {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" $featured.Title "width" 700) }}
           </a>
         </div>
         {{ end }}
@@ -45,7 +45,7 @@
         <article class="news-card-v2">
           {{ with .Params.image }}
           <a href="{{ $.RelPermalink }}" class="news-card-img">
-            <img src="{{ . }}" alt="{{ $.Title }}">
+            {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" $.Title "width" 500) }}
             <span class="news-date-overlay">{{ $.Date.Format "02 Jan 2006" }}</span>
           </a>
           {{ end }}

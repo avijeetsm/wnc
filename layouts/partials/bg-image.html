@@ -1,0 +1,14 @@
+{{- $src := .src -}}
+{{- $width := .width | default 1600 -}}
+{{- $img := resources.Get $src -}}
+{{- if $img -}}
+  {{- $webp := $img -}}
+  {{- if gt $img.Width (int $width) -}}
+    {{- $webp = $img.Resize (printf "%dx webp q80" (int $width)) -}}
+  {{- else -}}
+    {{- $webp = $img.Process "webp q80" -}}
+  {{- end -}}
+  {{- $webp.RelPermalink -}}
+{{- else -}}
+  {{- printf "/%s" $src -}}
+{{- end -}}

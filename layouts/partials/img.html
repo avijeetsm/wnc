@@ -1,0 +1,27 @@
+{{- $src := .src -}}
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $width := .width | default 800 -}}
+{{- $style := .style | default "" -}}
+{{- $onclick := .onclick | default "" -}}
+
+{{- $img := resources.Get $src -}}
+{{- if $img -}}
+  {{- $resized := $img -}}
+  {{- if gt $img.Width (int $width) -}}
+    {{- $resized = $img.Resize (printf "%dx webp" (int $width)) -}}
+  {{- else -}}
+    {{- $resized = $img.Process "webp" -}}
+  {{- end -}}
+  {{- $fallback := $img -}}
+  {{- if gt $img.Width (int $width) -}}
+    {{- $fallback = $img.Resize (printf "%dx" (int $width)) -}}
+  {{- end -}}
+  <picture>
+    <source srcset="{{ $resized.RelPermalink }}" type="image/webp">
+    <img src="{{ $fallback.RelPermalink }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }}{{ with $style }} style="{{ . }}"{{ end }}{{ with $onclick }} onclick="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="async">
+  </picture>
+{{- else -}}
+  <img src="{{ printf "/%s" $src }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }}{{ with $style }} style="{{ . }}"{{ end }}{{ with $onclick }} onclick="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="async">
+{{- end -}}

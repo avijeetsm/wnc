@@ -20,7 +20,7 @@
           <article class="event-card">
             {{ with $event.Params.image }}
             <a href="{{ $event.RelPermalink }}" class="event-card-img">
-              <img src="{{ . }}" alt="{{ $event.Title }}">
+              {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" $event.Title "width" 500) }}
               <div class="event-card-date">
                 <span class="day">{{ $event.Date.Format "02" }}</span>
                 <span class="month">{{ $event.Date.Format "Jan" }}</span>
@@ -52,7 +52,7 @@
               {{ with .Params.image }}
               <div class="col-4">
                 <a href="{{ $.RelPermalink }}" class="event-list-img">
-                  <img src="{{ . }}" alt="{{ $.Title }}">
+                  {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" $.Title "width" 300) }}
                 </a>
               </div>
               {{ end }}
