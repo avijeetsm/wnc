@@ -1,7 +1,7 @@
 ---
 title: "Plantation Drive at Baroda Daulat 2024"
 date: 2024-07-21
-image: "https://wncindia.org/backend/plugins/images/plantation.jpeg"
+image: "/images/content/plantation.jpeg"
 ---
 
 Happy to share info about one of our plantation drives with the collaboration and support of villagers and children at Baroda Daulat.

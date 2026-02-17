@@ -1,7 +1,7 @@
 ---
 title: "2nd Bird Survey Organised at Sanjay Dubri"
 date: 2024-02-22
-image: "https://wncindia.org/backend/plugins/images/SDTR2ndBirdSur_01fnl.jpg"
+image: "/images/content/SDTR2ndBirdSur_01fnl.jpg"
 ---
 
 2nd Bird Survey at Sanjay Dubri Tiger Reserve was organised by Forest Department at Sanjay Dubri in collaboration with WNC, Indore from 25th -28th Jan 2024.

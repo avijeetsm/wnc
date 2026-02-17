@@ -1,7 +1,7 @@
 ---
 title: "Socio Medical Camp at Kanha Tiger Reserve"
 date: 2024-04-13
-image: "https://wncindia.org/backend/plugins/images/WhatsApp Image 2024-04-15 at 11.52.05 AM.jpeg"
+image: "/images/content/socio-medical-camp-kanha.jpeg"
 ---
 
 Greetings from our recent small endeavour at Kanha Tiger Reserve

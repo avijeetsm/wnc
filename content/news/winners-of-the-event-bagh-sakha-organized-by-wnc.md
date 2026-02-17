@@ -1,7 +1,7 @@
 ---
 title: "Winners of the event \"Bagh Sakha\" organized by WNC"
 date: 2021-07-27
-image: "https://wncindia.org/backend/plugins/images/Bagh_Sakhha.jpeg"
+image: "/images/content/Bagh_Sakhha.jpeg"
 ---
 
 Finally announcing the winners of the event "Bagh Sakha" organized by WNC (wildlife and nature conservancy, Indore) in coordination with MPTFS.

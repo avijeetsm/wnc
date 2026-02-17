@@ -2,7 +2,7 @@
 title: "Donate"
 type: "page"
 layout: "donate"
-banner: "https://wncindia.org/images/BG2.jpg"
+banner: "/images/bg/BG2.jpg"
 description: "Support wildlife conservation with your generous contribution"
 ---
 
@@ -31,7 +31,7 @@ Your small contribution can be of great help for us to continue serving to the h
 
 </div>
 <div class="col-md-6 text-center">
-<img class="img-fluid mt-4" src="https://wncindia.org/images/about/wncupiqr.png" alt="WNC UPI QR Code">
+<img class="img-fluid mt-4" src="/images/about/wncupiqr.png" alt="WNC UPI QR Code">
 </div>
 </div>
 

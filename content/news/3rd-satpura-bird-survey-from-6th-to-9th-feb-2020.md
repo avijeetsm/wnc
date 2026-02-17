@@ -1,7 +1,7 @@
 ---
 title: "3rd Satpura Bird Survey from 6th to 9th Feb 2020"
 date: 2020-08-13
-image: "https://wncindia.org/backend/plugins/images/WNC-3rd-Satpura-Bird-Survey.jpg"
+image: "/images/content/WNC-3rd-Satpura-Bird-Survey.jpg"
 ---
 
 3rd Satpura Bird Survey was organised by Satpura Tiger Reserve in collaboration with WNC, Indore from 6th to 9th february 2020.

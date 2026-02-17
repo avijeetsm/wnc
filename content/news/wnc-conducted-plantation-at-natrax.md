@@ -1,7 +1,7 @@
 ---
 title: "WNC conducted plantation at NATRAX"
 date: 2020-08-14
-image: "https://wncindia.org/backend/plugins/images/WNC_Plantation_drive_at_NAT.jpg"
+image: "/images/content/WNC_Plantation_drive_at_NAT.jpg"
 ---
 
 On 5th july 2020 wildlife and nature conservancy indore conducted plantation drive at the campus of Asia's largest automotive test track - 'NATRAX'. All the members got an opportunity to know about the Natrax through the presentation given by the director of Natrax - Dr N Karuppya. Plantation drive was spearheaded by Dr.N Karuppya and WNC Chairperson Mr Anil Nagar with the first sapling. This was followed by all the WNC members planting a few each.

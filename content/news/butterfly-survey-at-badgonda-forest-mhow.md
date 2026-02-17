@@ -1,7 +1,7 @@
 ---
 title: "Butterfly Survey At Badgonda Forest, Mhow"
 date: 2024-09-29
-image: "https://wncindia.org/backend/plugins/images/WhatsApp Image 2024-09-29 at 8.23.17 PM.jpeg"
+image: "/images/content/butterfly-survey-badgonda-2024.jpeg"
 ---
 
 We just completed the annual Badgonda Butterfly Survey with MP forest department at the largest nursery in MP. A beautiful landscape well maintained my MP Forest department.

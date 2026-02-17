@@ -1,7 +1,7 @@
 ---
 title: "INVITATION KUNO-SHEOPUR VULTURE CUM BIRD SURVEY 26"
 date: 2020-11-08
-image: "https://wncindia.org/backend/plugins/images/kuno survey2020 invitation.jpg"
+image: "/images/content/kuno-survey-2020-invitation.jpg"
 ---
 
 Kuno National park is located in Sheopur dist. Of Madhya Pradesh.

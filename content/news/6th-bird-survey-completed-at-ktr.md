@@ -1,7 +1,7 @@
 ---
 title: "6th Bird survey Completed at KTR"
 date: 2024-02-22
-image: "https://wncindia.org/backend/plugins/images/KTR_6htBirdSur_01fnl.jpg"
+image: "/images/content/KTR_6htBirdSur_01fnl.jpg"
 ---
 
 Kanha Tiger Reserve along with WNC (Wildlife and Nature Conservancy), Indore are pleased to announce the successful completion of 6th Bird survey at KTR.

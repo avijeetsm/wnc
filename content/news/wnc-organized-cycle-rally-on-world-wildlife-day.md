@@ -1,7 +1,7 @@
 ---
 title: "WNC organized cycle rally on World Wildlife Day"
 date: 2023-03-14
-image: "https://wncindia.org/backend/plugins/images/IMG_9930.JPG"
+image: "/images/content/IMG_9930.JPG"
 ---
 
 On 5th March 2023, WNC, Indore organized a cycle rally to observe the World Wildlife Day that was on 3rd.

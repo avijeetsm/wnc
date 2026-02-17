@@ -1,7 +1,7 @@
 ---
 title: "1st Summer Bird Survey- Pench Tiger Reserve"
 date: 2022-05-23
-image: "https://wncindia.org/backend/plugins/images/1st_Bird_Suvey-Pench-Tiger-Reserve.jpg"
+image: "/images/content/1st_Bird_Suvey-Pench-Tiger-Reserve.jpg"
 ---
 
 We are pleased to share that, 1st Summer Bird Survey has successfully been conducted at Pench Tiger Reserve in collaboration with WNC from 12th -15th May 2022.

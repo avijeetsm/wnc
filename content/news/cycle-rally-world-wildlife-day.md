@@ -1,7 +1,7 @@
 ---
 title: "Cycle Rally - World Wildlife Day"
 date: 2024-03-03
-image: "https://wncindia.org/backend/plugins/images/WhatsApp Image 2024-04-15 at 2.37.11 PM.jpeg"
+image: "/images/content/cycle-rally-world-wildlife-day.jpeg"
 ---
 
 On 3rd March WNC observed the World Wildlife Day by organizing a cycle rally for awareness.

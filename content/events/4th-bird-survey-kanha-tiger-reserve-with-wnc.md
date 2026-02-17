@@ -1,7 +1,7 @@
 ---
 title: "4th Bird survey- Kanha Tiger Reserve with WNC"
 date: 2023-03-11
-image: "https://wncindia.org/backend/plugins/images/333687262_160121300170807_380038386796615040_n.jpg"
+image: "/images/content/333687262_160121300170807_380038386796615040_n.jpg"
 ---
 
 Our enthusiastic birders were all ready to take on the tough yet resplendent land of Kanha. The event was graced by The Honourable Forest Minister of MP Dr. Kunwar Vijay Shah during the commencement. One of the most humble & dedicated ministers one can desire to lead us & bring in actual improvements in our system for conservation and control. The interaction between birders & the entire wildlife officers including Field Director SK Singh sir was full of awe inspiring stories & experiences. The survey was an amazing program targeted to take count on existing species, add new species to the Kanha's list & compare notes on changes seen in patterns of migratory birds. We hope the resulting data will shed new light on hidden secrets & amazing facts of nature upon completion. WNC once again feels lucky to have the opportunity to contribute to nature & compile data to aid the community to take informed decisions for improving conservation strategies exponentially.

@@ -1,7 +1,7 @@
 ---
 title: "Birds of Kanha: A photobook"
 date: 2024-10-07
-image: "https://wncindia.org/backend/plugins/images/WhatsApp Image 2024-10-11 at 1.36.24 PM.jpeg"
+image: "/images/content/birds-of-kanha-photobook.jpeg"
 ---
 
 Birds of Kanha: A photobook

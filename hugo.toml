@@ -12,8 +12,8 @@ summaryLength = 30
   email2 = "wncindore@gmail.com"
   address = "203, Second Floor, Akansha Trade Centre, Opp-Hotel Omni Palace, Geeta Bhawan, Indore, 452001 MP."
   registrationNo = "03/27/01/20646/18"
-  logo = "https://wncindia.org/images/W_logo.png"
-  favicon = "https://wncindia.org/images/fevicon/favicon-96x96.png"
+  logo = "/images/bg/W_logo.png"
+  favicon = "/images/favicon/favicon-96x96.png"
 
   [params.social]
     facebook = "https://facebook.com/wncindore"

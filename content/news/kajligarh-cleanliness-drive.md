@@ -1,7 +1,7 @@
 ---
 title: "Kajligarh Cleanliness Drive"
 date: 2024-03-31
-image: "https://wncindia.org/backend/plugins/images/KajligarhCleanlinessDrive.jpeg"
+image: "/images/content/KajligarhCleanlinessDrive.jpeg"
 ---
 
 Wildlife and Nature Conservancy Indore recently conducted a cleanliness drive at Kajligarh, less than 30 kilometers away from the city of Indore, touted as the cleanest city in India. The event, held on 31st March 2024, witnessed enthusiastic participation from members of the community, guided by the esteemed chairperson, Mr. Anil Nagar, and supported by the Forest Department of Indore. DFO Shri Mahendra Singh Solanki's active involvement further amplified the spirit of the occasion. The participants engaged in a thorough cleanup drive, ensuring that Kajligarh maintains its pristine beauty throughout the year. Waste collected during the event was efficiently managed, thanks to the arrangements made by the Forest Department for its disposal at the solid waste management center. To reinforce the message of cleanliness and environmental stewardship, instructions and slogans were artistically painted on the walls, serving as constant reminders for citizens to uphold the sanctity of this cherished natural space. The collective effort aimed not only to cleanse the surroundings but also to instill a sense of ownership and responsibility among visitors. This initiative underscores the broader objective of promoting a collective shift in behavior towards environmental preservation. As stewards of our natural heritage, it is imperative for all to embrace the responsibility of keeping Kajligarh and other natural wonders clean and pristine.

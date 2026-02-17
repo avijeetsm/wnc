@@ -1,7 +1,7 @@
 ---
 title: "SDTR First Butterfly Survey Report Released"
 date: 2024-01-30
-image: "https://wncindia.org/backend/plugins/images/WNC_Sanjay_Dubri_Report.jpg"
+image: "/images/content/WNC_Sanjay_Dubri_Report.jpg"
 ---
 
 We are very happy to release the report of the first Butterfly Survey from Sanjay Dubri Tiger Reserve. It was a magical experience to scientifically chart the distribution of the winged wonders.

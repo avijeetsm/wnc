@@ -1,7 +1,7 @@
 ---
 title: "Socio Medical Camp at Bandhavgarh Tiger Reserve"
 date: 2024-07-27
-image: "https://wncindia.org/backend/plugins/images/sociomedicalcamp.jpeg"
+image: "/images/content/sociomedicalcamp.jpeg"
 ---
 
 WNC, Indore organized a socio-medical camp with the soul intention to support the ground staff of our forest department. These people work tirelessly day and night to help conserve whatever is left.

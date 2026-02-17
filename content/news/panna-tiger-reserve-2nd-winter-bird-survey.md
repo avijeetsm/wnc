@@ -1,7 +1,7 @@
 ---
 title: "Panna Tiger Reserve (PTR) - 2nd Winter Bird Survey"
 date: 2024-12-05
-image: "https://wncindia.org/backend/plugins/images/ptrbs.jpeg"
+image: "/images/content/ptrbs.jpeg"
 ---
 
 We are so happy and blessed to even report this back to all the birding enthusiasts. We just completed the 2nd Winter Bird Survey at the Panna Tiger Reserve (PTR) between 5-8 December 2024.

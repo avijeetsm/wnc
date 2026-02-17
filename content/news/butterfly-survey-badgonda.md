@@ -1,7 +1,7 @@
 ---
 title: "Butterfly Survey, Badgonda"
 date: 2023-09-27
-image: "https://wncindia.org/backend/plugins/images/Badgonda_Butterfly-Survey-Sept-23.jpeg"
+image: "/images/content/Badgonda_Butterfly-Survey-Sept-23.jpeg"
 ---
 
 After a long wait

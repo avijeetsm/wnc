@@ -1,7 +1,7 @@
 ---
 title: "2nd Kanha Bird Survey"
 date: 2021-03-16
-image: "https://wncindia.org/backend/plugins/images/Kanha_Bird_Survey_1.jpg"
+image: "/images/content/Kanha_Bird_Survey_1.jpg"
 ---
 
 2nd Kanha Bird Survey was organised by Kanha Tiger Reserve in collaboration with WNC, Indore from 18th to 21st February 2021.

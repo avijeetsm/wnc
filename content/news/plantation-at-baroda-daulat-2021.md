@@ -1,7 +1,7 @@
 ---
 title: "Plantation at Baroda_Daulat 2021"
 date: 2021-07-27
-image: "https://wncindia.org/backend/plugins/images/Plantation_Baroda_Daulat_20.jpg"
+image: "/images/content/Plantation_Baroda_Daulat_20.jpg"
 ---
 
 Team WNC once again successfully conducted plantation at Baroda- Daulat on 18th July 2021. Following the covid norms, limited no. of members were invited for plantation.

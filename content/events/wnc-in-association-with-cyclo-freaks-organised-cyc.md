@@ -1,7 +1,7 @@
 ---
 title: "WNC in association with Cyclo Freaks organised Cyc"
 date: 2020-08-08
-image: "https://wncindia.org/backend/plugins/images/WNC-Cycle-Rally-March-2020.jpg"
+image: "/images/content/WNC-Cycle-Rally-March-2020.jpg"
 ---
 
 Every species is better alive than dead be it of Humans or Animals or Birds or Trees.

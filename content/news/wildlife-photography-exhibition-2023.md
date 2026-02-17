@@ -1,7 +1,7 @@
 ---
 title: "Wildlife Photography Exhibition 2023"
 date: 2023-08-01
-image: "https://wncindia.org/backend/plugins/images/09-n.jpg"
+image: "/images/content/09-n.jpg"
 ---
 
 WNC organised a wildlife photography exhibition in Indore on 29 & 30 July 2023. Shri Shankar Lalwani Ji, Honourable member of Parliament from Indore, joined the event during the inauguration and graced us with his presence and support.

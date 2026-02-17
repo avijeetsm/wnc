@@ -1,7 +1,7 @@
 ---
 title: "Bandhavgarh Tiger Reserve - 1st Summer Bird Survey"
 date: 2024-05-26
-image: "https://wncindia.org/backend/plugins/images/btros.jpeg"
+image: "/images/content/btros.jpeg"
 ---
 
 How often is it okay to congradulate just the efforts.

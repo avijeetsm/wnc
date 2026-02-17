@@ -1,7 +1,7 @@
 ---
 title: "Bandhavgarh Tiger Reserve Bird Survey"
 date: 2024-01-26
-image: "https://wncindia.org/backend/plugins/images/Bandhawgarh_BS_1.jpg"
+image: "/images/content/Bandhawgarh_BS_1.jpg"
 ---
 
 Start of new year with a bird survey in Bandhavgarh Tiger Reserve

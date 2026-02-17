@@ -1,7 +1,7 @@
 ---
 title: "Cyclo Freaks Cycle Ride in association with WNC"
 date: 2020-08-13
-image: "https://wncindia.org/backend/plugins/images/WNC-Cyclo-Freak-awareness-rally.jpg"
+image: "/images/content/WNC-Cyclo-Freak-awareness-rally.jpg"
 ---
 
 Every species is better alive than dead be it of Humans or Animals or Birds or Trees.

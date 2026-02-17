@@ -1,7 +1,7 @@
 ---
 title: "Nature walk and bird watching at Baroda Daulat"
 date: 2021-01-22
-image: "https://wncindia.org/backend/plugins/images/Nature_Walk_&_Bird_Watching.jpg"
+image: "/images/content/Nature_Walk_Bird_Watching.jpg"
 ---
 
 "Nature walk and bird watching at Baroda Daulat"- what else could be a better way to welcome New Year.
