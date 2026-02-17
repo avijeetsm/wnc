@@ -295,7 +295,9 @@ img { max-width: 100%; }
 }
 
 .hero-carousel .carousel-control-prev,
-.hero-carousel .carousel-control-next { display: none; }
+.hero-carousel .carousel-control-next { width: 5%; opacity: .7; }
+.hero-carousel .carousel-control-prev:hover,
+.hero-carousel .carousel-control-next:hover { opacity: 1; }
 
 /* ========================================
    IMPACT STATS BAR

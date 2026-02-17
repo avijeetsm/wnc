@@ -1,11 +1,5 @@
 - image: "/images/bg/bg0.jpg"
 
-- image: "/images/bg/BG2.jpg"
-  heading: "Protecting Wildlife"
-  subtitle: "One step at a time"
-  cta_text: "Our Campaigns"
-  cta_url: "/#campaigns"
-
 - image: "/images/bg/bg1.jpg"
   heading: "Dedicated to Nature"
   subtitle: "A team of passionate conservationists working across Central India"
@@ -23,3 +17,9 @@
   subtitle: "Are we for nature?"
   cta_text: "Donate Now"
   cta_url: "/donate/"
+
+- image: "/images/bg/BG2.jpg"
+  heading: "Protecting Wildlife"
+  subtitle: "One step at a time"
+  cta_text: "Our Campaigns"
+  cta_url: "/#campaigns"
