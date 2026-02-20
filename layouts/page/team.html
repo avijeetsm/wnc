@@ -14,9 +14,13 @@
           {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .photo) "alt" .name "class" "img-fluid" "width" 200) }}
         </div>
         <div class="col-md-10">
-          <h4 class="mb-0">{{ .name }}</h4>
+          <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+            <h4 class="mb-0">{{ .name }}</h4>
+            {{ with .linkedin }}<a href="{{ . }}" class="text-decoration-none" style="color: var(--wnc-green-light);" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin fs-5"></i></a>{{ end }}
+          </div>
           <span class="role fw-bold">{{ .role }}</span>
-          <p class="mt-2 text-justify">{{ .bio }}</p>
+          <p class="mt-2 mb-1 text-justify team-bio-text">{{ .bio }}</p>
+          <button class="team-bio-toggle" onclick="this.previousElementSibling.classList.toggle('expanded'); this.textContent = this.previousElementSibling.classList.contains('expanded') ? 'Show less' : 'Read more';">Read more</button>
         </div>
       </div>
     </div>

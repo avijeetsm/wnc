@@ -18,7 +18,8 @@
         <div class="mt-3">
           <a href="{{ .Site.Params.social.facebook }}" class="me-3 text-decoration-none text-green-light" target="_blank" rel="noopener"><i class="bi bi-facebook fs-5"></i></a>
           <a href="{{ .Site.Params.social.youtube }}" class="me-3 text-decoration-none text-green-light" target="_blank" rel="noopener"><i class="bi bi-youtube fs-5"></i></a>
-          <a href="{{ .Site.Params.social.instagram }}" class="text-decoration-none text-green-light" target="_blank" rel="noopener"><i class="bi bi-instagram fs-5"></i></a>
+          <a href="{{ .Site.Params.social.instagram }}" class="me-3 text-decoration-none text-green-light" target="_blank" rel="noopener"><i class="bi bi-instagram fs-5"></i></a>
+          {{ with .Site.Params.social.twitter }}<a href="{{ . }}" class="text-decoration-none text-green-light" target="_blank" rel="noopener"><i class="bi bi-twitter-x fs-5"></i></a>{{ end }}
         </div>
       </div>
 
@@ -26,9 +27,10 @@
       <div class="col-lg-4 mb-4">
         <h5 class="mb-3 pb-2 border-bottom border-secondary">Latest News</h5>
         {{ range first 3 (where .Site.RegularPages "Section" "news") }}
+        {{- $articleLink := .RelPermalink -}}
         <article class="d-flex mb-3">
           {{ with .Params.image }}
-          <a href="{{ $.RelPermalink }}" class="me-3 flex-shrink-0">
+          <a href="{{ $articleLink }}" class="me-3 flex-shrink-0">
             {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" "" "class" "footer-news-thumb" "width" 100) }}
           </a>
           {{ end }}
@@ -56,9 +58,12 @@
     </div>
 
     <!-- Copyright -->
-    <div class="row">
-      <div class="col-12 text-center">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-8 text-center text-md-start">
         <p class="text-muted small mb-0">&copy; {{ now.Format "2006" }} Wildlife &amp; Nature Conservancy Society (WNC India). All rights reserved.</p>
+      </div>
+      <div class="col-12 col-md-4 text-center text-md-end mt-2 mt-md-0">
+        <a href="#" class="text-muted small text-decoration-none"><i class="bi bi-arrow-up-circle me-1"></i>Back to top</a>
       </div>
     </div>
   </div>
@@ -68,3 +73,10 @@
 <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
   <i class="bi bi-arrow-up"></i>
 </a>
+
+<!-- WhatsApp Floating Button -->
+{{ with .Site.Params.whatsapp }}
+<a href="https://wa.me/{{ . }}" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+{{ end }}

@@ -14,11 +14,14 @@ summaryLength = 30
   registrationNo = "03/27/01/20646/18"
   logo = "/images/bg/W_logo.png"
   favicon = "/images/favicon/favicon-96x96.png"
+  foundingYear = 2018
+  whatsapp = "919131678295"
 
   [params.social]
     facebook = "https://facebook.com/wncindore"
     youtube = "https://www.youtube.com/channel/UC4uoEwWoKQjyhIhHKUGQi2g"
     instagram = "https://instagram.com/wncindore"
+    twitter = ""
 
   [params.videos]
     video1 = "https://www.youtube.com/embed/NNJsKTD0y3w"
@@ -94,6 +97,6 @@ summaryLength = 30
       unsafe = true
 
 [outputs]
-  home = ["HTML"]
-  section = ["HTML"]
+  home = ["HTML", "Sitemap", "RSS"]
+  section = ["HTML", "Sitemap", "RSS"]
   page = ["HTML"]

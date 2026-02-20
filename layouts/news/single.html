@@ -27,4 +27,36 @@
     </div>
   </div>
 </section>
+
+<!-- Related News -->
+{{ $related := .Site.RegularPages.Related . | first 3 }}
+{{ if $related }}
+<section class="section-padding bg-cream">
+  <div class="container">
+    <span class="section-tag">More Reading</span>
+    <h2 class="section-heading mb-4">Related News</h2>
+    <div class="row g-4">
+      {{ range $related }}
+      {{- $rLink := .RelPermalink -}}
+      {{- $rTitle := .Title -}}
+      <div class="col-md-4 fade-up">
+        <article class="news-card">
+          {{ with .Params.image }}
+          <a href="{{ $rLink }}" class="news-card-img">
+            {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" $rTitle "width" 500) }}
+          </a>
+          {{ end }}
+          <div class="news-card-body">
+            <div class="news-card-date"><i class="bi bi-calendar3 me-1"></i>{{ .Date.Format "02 Jan 2006" }}</div>
+            <h5><a href="{{ $rLink }}">{{ $rTitle }}</a></h5>
+            <p>{{ .Summary | plainify | htmlUnescape | truncate 100 }}</p>
+            <a href="{{ $rLink }}" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
 {{ end }}

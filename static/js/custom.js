@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  /* ---- Carousel: pause on hover ---- */
+  var heroCarousel = document.getElementById('heroCarousel');
+  if (heroCarousel) {
+    var bsCarousel = bootstrap.Carousel.getOrCreateInstance(heroCarousel);
+    heroCarousel.addEventListener('mouseenter', function () { bsCarousel.pause(); });
+    heroCarousel.addEventListener('mouseleave', function () { bsCarousel.cycle(); });
+  }
+
   /* ---- Scroll to Top button ---- */
   const scrollBtn = document.getElementById('scrollToTop');
   if (scrollBtn) {

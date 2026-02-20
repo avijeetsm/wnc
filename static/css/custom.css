@@ -2,8 +2,6 @@
    WNC India – Modern Theme Styles
    =================================== */
 
-/* ---- Google Fonts ---- */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   --wnc-green: #1a3a28;
@@ -1352,3 +1350,80 @@ footer a:hover { color: var(--wnc-green-light) !important; }
   .about-pillar { padding: 10px 14px; }
   .event-list-img img { height: 120px; }
 }
+
+/* ---- Donation Tiers ---- */
+.donate-tier {
+  border-color: var(--wnc-border) !important;
+  transition: border-color .2s, box-shadow .2s;
+}
+.donate-tier:hover {
+  border-color: var(--wnc-green-light) !important;
+  box-shadow: var(--shadow-md);
+}
+.donate-tier-featured {
+  border-color: var(--wnc-green-light) !important;
+  box-shadow: var(--shadow-sm);
+  background: var(--wnc-green-bg);
+}
+.donate-tier-amount {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--wnc-green);
+}
+.donate-tier-label {
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--wnc-amber);
+  margin-top: 2px;
+}
+
+/* ---- WhatsApp Floating Button ---- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 16px rgba(37,211,102,.45);
+  transition: transform .2s, box-shadow .2s;
+  text-decoration: none;
+}
+.whatsapp-float:hover {
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 6px 22px rgba(37,211,102,.6);
+}
+
+/* ---- Team bio truncation ---- */
+.team-bio-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.team-bio-text.expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+}
+.team-bio-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--wnc-green-light);
+  cursor: pointer;
+  margin-top: 4px;
+}
+.team-bio-toggle:hover { color: var(--wnc-green); }
