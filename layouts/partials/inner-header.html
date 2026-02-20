@@ -1,7 +1,8 @@
 {{/* Inner page banner with title, breadcrumb, and optional description */}}
 {{ $bgSrc := .Params.banner | default "/images/bg/bg1.jpg" }}
 {{ $bgUrl := partial "bg-image.html" (dict "src" (strings.TrimPrefix "/" $bgSrc) "width" 1600) }}
-<section class="page-hero" style="background-image: url('{{ $bgUrl }}');">
+{{ $bgPos := .Params.banner_position | default "center" }}
+<section class="page-hero" style="background-image: url('{{ $bgUrl }}'); background-position: {{ $bgPos }};">
   <div class="container">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb mb-2">

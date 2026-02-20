@@ -1,5 +1,6 @@
 ---
 title: "Events"
-banner: "/images/campaigns/WNC-Butterfly-Survey-01.jpg"
+banner: "/images/content/Bandhawgarh_BS_1.jpg"
+banner_position: "center"
 description: "Surveys, camps, and conservation drives across Central India"
 ---
