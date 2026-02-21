@@ -299,4 +299,28 @@
   </div>
 </section>
 
+<!-- ======== EVENT POPUP MODAL ======== -->
+{{ $poster := resources.Get "images/content/cycleRally.jpeg" }}
+{{ if $poster }}
+{{ $poster = $poster.Resize "960x webp" }}
+<div class="modal fade" id="eventPopupModal" tabindex="-1" aria-labelledby="eventPopupLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 480px;">
+    <div class="modal-content border-0 shadow-lg" style="border-radius: 12px; overflow: hidden;">
+      <div class="modal-header border-0 pb-0 px-3 pt-3" style="position: absolute; top: 0; right: 0; z-index: 10;">
+        <button type="button" class="btn-close btn-close-white bg-dark bg-opacity-50 rounded-circle p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <a href="https://forms.gle/qQjtFXAdyF4uTKqk8" target="_blank" rel="noopener">
+        <img src="{{ $poster.RelPermalink }}" alt="Cycle Rally – World Wildlife Day 2026" class="w-100 d-block" style="border-radius: 12px 12px 0 0;">
+      </a>
+      <div class="modal-footer border-0 justify-content-center py-3 px-4" style="background: var(--wnc-dark);">
+        <a href="https://forms.gle/qQjtFXAdyF4uTKqk8" target="_blank" rel="noopener" class="btn btn-warning fw-bold px-4 rounded-pill">
+          <i class="bi bi-bicycle me-2"></i>Register Now
+        </a>
+        <button type="button" class="btn btn-outline-light rounded-pill px-3" data-bs-dismiss="modal">Maybe Later</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+
 {{ end }}

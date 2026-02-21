@@ -34,6 +34,16 @@ document.addEventListener('DOMContentLoaded', function () {
     faders.forEach(function (el) { observer.observe(el); });
   }
 
+  /* ---- Event popup: show once per session ---- */
+  var popupEl = document.getElementById('eventPopupModal');
+  if (popupEl && !sessionStorage.getItem('eventPopupShown')) {
+    setTimeout(function () {
+      var modal = new bootstrap.Modal(popupEl, { backdrop: true });
+      modal.show();
+      sessionStorage.setItem('eventPopupShown', '1');
+    }, 1200);
+  }
+
   /* ---- Navbar shrink on scroll ---- */
   const navbar = document.querySelector('.navbar');
   if (navbar) {
