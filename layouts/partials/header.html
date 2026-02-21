@@ -1,23 +1,20 @@
 <!-- Top Bar -->
 <div class="top-bar text-white py-1">
   <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-8">
-        <small>
-          <a href="tel:{{ .Site.Params.phone }}" class="text-white text-decoration-none me-3">
-            <i class="bi bi-telephone-fill me-1"></i> {{ .Site.Params.phone }}
-          </a>
-          <a href="mailto:{{ .Site.Params.email }}" class="text-white text-decoration-none d-none d-md-inline">
-            <i class="bi bi-envelope-fill me-1"></i> {{ .Site.Params.email }}
-          </a>
-        </small>
-      </div>
-      <div class="col-md-4 text-end">
-        <a href="{{ .Site.Params.social.facebook }}" class="text-white text-decoration-none me-2" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
-        <a href="{{ .Site.Params.social.youtube }}" class="text-white text-decoration-none me-2" target="_blank" rel="noopener"><i class="bi bi-youtube"></i></a>
-        <a href="{{ .Site.Params.social.instagram }}" class="text-white text-decoration-none me-2" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
-        {{ with .Site.Params.social.twitter }}<a href="{{ . }}" class="text-white text-decoration-none me-3" target="_blank" rel="noopener"><i class="bi bi-twitter-x"></i></a>{{ end }}
-        <a href="{{ "/membership/" | relURL }}" class="btn btn-sm btn-topbar text-white fw-bold px-3">Become a Member</a>
+    <div class="d-flex align-items-center justify-content-between">
+      <small>
+        <a href="tel:{{ .Site.Params.phone }}" class="text-white text-decoration-none">
+          <i class="bi bi-telephone-fill me-1"></i><span class="d-none d-sm-inline">{{ .Site.Params.phone }}</span>
+        </a>
+        <a href="mailto:{{ .Site.Params.email }}" class="text-white text-decoration-none ms-3">
+          <i class="bi bi-envelope-fill me-1"></i>{{ .Site.Params.email }}
+        </a>
+      </small>
+      <div class="d-flex align-items-center gap-2">
+        <a href="{{ .Site.Params.social.youtube }}" class="text-white text-decoration-none" target="_blank" rel="noopener"><i class="bi bi-youtube"></i></a>
+        <a href="{{ .Site.Params.social.instagram }}" class="text-white text-decoration-none" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+        {{ with .Site.Params.social.twitter }}<a href="{{ . }}" class="text-white text-decoration-none" target="_blank" rel="noopener"><i class="bi bi-twitter-x"></i></a>{{ end }}
+        <a href="{{ "/donate/" | relURL }}" class="btn btn-sm btn-topbar text-white fw-bold px-2 px-md-3"><i class="bi bi-heart-fill me-1"></i>Donate</a>
       </div>
     </div>
   </div>
@@ -53,8 +50,8 @@
             </li>
           {{ else if eq .Name "Donate" }}
             <li class="nav-item ms-lg-2">
-              <a class="btn btn-donate-nav" href="{{ .URL }}">
-                <i class="bi bi-heart-fill me-1"></i>{{ .Name }}
+              <a class="btn btn-donate-nav" href="{{ "/membership/" | relURL }}">
+                <i class="bi bi-person-plus-fill me-1"></i>Become a Member
               </a>
             </li>
           {{ else }}

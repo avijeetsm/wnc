@@ -1,0 +1,10 @@
+# Homepage event popup configuration.
+# Set enabled: false to hide the popup without removing anything else.
+
+enabled: true
+poster: "images/content/cycleRally.jpeg"   # path relative to assets/
+display_until: "2026-03-02"                # ISO date (YYYY-MM-DD); popup hides after this date
+alt: "Cycle Rally – World Wildlife Day 2026"
+cta_text: "Register Now"
+cta_icon: "bi-bicycle"                     # Bootstrap Icons class
+cta_link: "https://forms.gle/qQjtFXAdyF4uTKqk8"

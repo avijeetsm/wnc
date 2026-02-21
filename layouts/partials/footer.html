@@ -16,7 +16,6 @@
           <li><i class="bi bi-envelope me-2 text-green-light"></i> <a href="mailto:{{ .Site.Params.email }}" class="text-secondary text-decoration-none">{{ .Site.Params.email }}</a></li>
         </ul>
         <div class="mt-3">
-          <a href="{{ .Site.Params.social.facebook }}" class="me-3 text-decoration-none text-green-light" target="_blank" rel="noopener"><i class="bi bi-facebook fs-5"></i></a>
           <a href="{{ .Site.Params.social.youtube }}" class="me-3 text-decoration-none text-green-light" target="_blank" rel="noopener"><i class="bi bi-youtube fs-5"></i></a>
           <a href="{{ .Site.Params.social.instagram }}" class="me-3 text-decoration-none text-green-light" target="_blank" rel="noopener"><i class="bi bi-instagram fs-5"></i></a>
           {{ with .Site.Params.social.twitter }}<a href="{{ . }}" class="text-decoration-none text-green-light" target="_blank" rel="noopener"><i class="bi bi-twitter-x fs-5"></i></a>{{ end }}

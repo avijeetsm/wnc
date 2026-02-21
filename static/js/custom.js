@@ -34,14 +34,15 @@ document.addEventListener('DOMContentLoaded', function () {
     faders.forEach(function (el) { observer.observe(el); });
   }
 
-  /* ---- Event popup: show once per session ---- */
+  /* ---- Event popup: show on every load, respects data-display-until ---- */
   var popupEl = document.getElementById('eventPopupModal');
-  if (popupEl && !sessionStorage.getItem('eventPopupShown')) {
-    setTimeout(function () {
-      var modal = new bootstrap.Modal(popupEl, { backdrop: true });
-      modal.show();
-      sessionStorage.setItem('eventPopupShown', '1');
-    }, 1200);
+  if (popupEl) {
+    var until = popupEl.dataset.displayUntil;
+    if (!until || new Date() < new Date(until)) {
+      setTimeout(function () {
+        new bootstrap.Modal(popupEl, { backdrop: true }).show();
+      }, 500);
+    }
   }
 
   /* ---- Navbar shrink on scroll ---- */
