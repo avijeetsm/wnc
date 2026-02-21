@@ -25,6 +25,123 @@
             {{ .Content }}
           </div>
 
+          {{/* ── eBird Trip Report Section ── */}}
+          {{ with .Params.ebird_trip_report_id }}
+          {{ $tripId := . }}
+          {{ $dataKey := printf "t%s" $tripId }}
+          {{ $allTaxa := index $.Site.Data.ebird $dataKey }}
+          {{ if $allTaxa }}
+          {{ $species := where $allTaxa "category" "species" }}
+          {{ $topSpecies := first 10 (sort $species "numChecklists" "desc") }}
+
+          <div class="ebird-section mt-5 pt-4" style="border-top: 2px solid var(--wnc-border);">
+
+            {{/* Header */}}
+            <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
+              <h5 class="mb-0 fw-bold">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 100" class="me-2" style="vertical-align:-3px"><circle cx="50" cy="50" r="50" fill="#e8580b"/><path d="M28 62c0-12 8-22 22-22s22 10 22 22" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/><circle cx="50" cy="38" r="7" fill="#fff"/></svg>
+                eBird Trip Report
+              </h5>
+              <a href="https://ebird.org/tripreport/{{ $tripId }}" target="_blank" rel="noopener"
+                 class="btn btn-sm rounded-pill px-3 fw-semibold"
+                 style="background:#e8580b; color:#fff; border:none;">
+                View Full Report <i class="bi bi-box-arrow-up-right ms-1"></i>
+              </a>
+            </div>
+
+            {{/* Stats */}}
+            <div class="row g-3 mb-4 text-center">
+              <div class="col-4">
+                <div class="p-3 rounded-3 h-100" style="background:rgba(34,139,34,.08); border:1px solid rgba(34,139,34,.2);">
+                  <div class="fw-bold mb-1" style="font-size:1.75rem; color:#228B22; line-height:1;">{{ $.Params.ebird_num_checklists }}</div>
+                  <small class="text-muted">Checklists</small>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="p-3 rounded-3 h-100" style="background:rgba(232,88,11,.08); border:1px solid rgba(232,88,11,.2);">
+                  <div class="fw-bold mb-1" style="font-size:1.75rem; color:#e8580b; line-height:1;">{{ $.Params.ebird_num_species }}</div>
+                  <small class="text-muted">Species</small>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="p-3 rounded-3 h-100" style="background:rgba(108,117,125,.08); border:1px solid rgba(108,117,125,.2);">
+                  <div class="fw-bold mb-1" style="font-size:1.75rem; color:#6c757d; line-height:1;">{{ $.Params.ebird_num_other_taxa }}</div>
+                  <small class="text-muted">Other Taxa</small>
+                </div>
+              </div>
+            </div>
+
+            {{/* Notable Records */}}
+            {{ with $.Params.ebird_highlights }}
+            <h6 class="text-uppercase fw-bold mb-3" style="letter-spacing:.08em; font-size:.75rem; color:#6c757d;">Notable Records</h6>
+            <div class="row g-2 mb-4">
+              {{ range . }}
+              <div class="col-12 col-sm-6">
+                <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-white border h-100">
+                  <i class="bi bi-binoculars-fill mt-1 flex-shrink-0" style="color:#e8580b; font-size:1rem;"></i>
+                  <div class="min-w-0">
+                    <div class="fw-semibold lh-sm">{{ .name }}</div>
+                    <div class="text-muted fst-italic" style="font-size:.8rem;">{{ .sci }}</div>
+                    <div class="d-flex flex-wrap gap-1 mt-1">
+                      <span class="badge rounded-pill" style="background:rgba(34,139,34,.12); color:#228B22; font-weight:500;">{{ .count }} ind.</span>
+                      {{ with .note }}<span class="badge rounded-pill" style="background:rgba(220,53,69,.1); color:#dc3545; font-weight:500;">{{ . }}</span>{{ end }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {{ end }}
+            </div>
+            {{ end }}
+
+            {{/* Top 10 Most Observed */}}
+            <h6 class="text-uppercase fw-bold mb-3" style="letter-spacing:.08em; font-size:.75rem; color:#6c757d;">Most Observed Species</h6>
+            <div class="rounded-3 border bg-white overflow-hidden mb-3">
+              {{ range $i, $sp := $topSpecies }}
+              <div class="d-flex align-items-center px-3 py-2{{ if lt $i 9 }} border-bottom{{ end }}">
+                <span class="fw-bold me-3 flex-shrink-0" style="min-width:1.5rem; text-align:right; color:#adb5bd; font-size:.85rem;">{{ add $i 1 }}</span>
+                <div class="flex-grow-1 min-w-0">
+                  <span class="fw-medium">{{ $sp.commonName }}</span>
+                  <small class="text-muted fst-italic ms-2 d-none d-sm-inline">{{ $sp.sciName }}</small>
+                </div>
+                <div class="d-flex gap-1 ms-2 flex-shrink-0">
+                  <span class="badge rounded-pill bg-light text-dark border" style="font-size:.75rem;">{{ $sp.numChecklists }} lists</span>
+                  {{ if $sp.numMedia }}<span class="badge rounded-pill bg-light text-dark border" style="font-size:.75rem;"><i class="bi bi-camera me-1"></i>{{ $sp.numMedia }}</span>{{ end }}
+                </div>
+              </div>
+              {{ end }}
+            </div>
+
+            {{/* Full species list toggle */}}
+            <div>
+              <button class="btn btn-sm btn-outline-secondary rounded-pill" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#fullSpeciesList" aria-expanded="false">
+                <i class="bi bi-list-ul me-1"></i>View All {{ $.Params.ebird_num_species }} Species
+              </button>
+              <div class="collapse mt-3" id="fullSpeciesList">
+                <div class="rounded-3 border bg-white overflow-hidden">
+                  {{ range $i, $sp := $species }}
+                  {{ if eq $sp.category "species" }}
+                  <div class="d-flex align-items-center px-3 py-2 border-bottom" style="font-size:.875rem;">
+                    <span class="text-muted me-3 flex-shrink-0" style="min-width:1.75rem; text-align:right; font-size:.8rem;">{{ add $i 1 }}</span>
+                    <div class="flex-grow-1 min-w-0">
+                      <span>{{ $sp.commonName }}</span>
+                      <small class="text-muted fst-italic ms-2 d-none d-sm-inline">{{ $sp.sciName }}</small>
+                    </div>
+                    <div class="d-flex gap-1 ms-2 flex-shrink-0">
+                      {{ if $sp.numIndividuals }}<span class="text-muted" style="font-size:.78rem;">{{ $sp.numIndividuals }} ind.</span>{{ end }}
+                      {{ if $sp.numMedia }}<span class="badge rounded-pill bg-light text-dark border ms-1" style="font-size:.7rem;"><i class="bi bi-camera"></i> {{ $sp.numMedia }}</span>{{ end }}
+                    </div>
+                  </div>
+                  {{ end }}
+                  {{ end }}
+                </div>
+              </div>
+            </div>
+
+          </div>
+          {{ end }}
+          {{ end }}
+
           <div class="article-nav mt-5 pt-4" style="border-top: 1px solid var(--wnc-border);">
             <a href="{{ "/events/" | relURL }}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>All Events</a>
           </div>

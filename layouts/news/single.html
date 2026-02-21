@@ -1,24 +1,277 @@
 {{ define "main" }}
-{{ partial "inner-header.html" . }}
+
+{{/* ── Breadcrumb bar ── */}}
+<div class="border-bottom py-3 breadcrumb-bar" style="background:#f8f9fa;">
+  <div class="container">
+    <nav aria-label="breadcrumb" style="font-size:.83rem;">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="{{ "/" | relURL }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ "/news/" | relURL }}">News</a></li>
+        <li class="breadcrumb-item active text-truncate" style="max-width:340px;">{{ .Title }}</li>
+      </ol>
+    </nav>
+  </div>
+</div>
 
 <section class="py-5">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-10 mx-auto">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
         <article>
-          <div class="d-flex align-items-center mb-3">
-            <div class="date-badge me-3 flex-shrink-0">
-              <div class="day-month">{{ .Date.Format "02 Jan" }}</div>
-              <div class="year">{{ .Date.Format "2006" }}</div>
-            </div>
-            <h2 class="fw-bold mb-0">{{ .Title }}</h2>
+          <h1 class="fw-bold mb-3" style="font-size:2rem; line-height:1.3;">{{ .Title }}</h1>
+          <div class="d-flex align-items-center gap-3 text-muted mb-4" style="font-size:.88rem;">
+            <span><i class="bi bi-calendar3 me-1"></i>{{ .Date.Format "02 January 2006" }}</span>
+            {{ with .Params.author }}<span><i class="bi bi-person me-1"></i>{{ . }}</span>{{ end }}
           </div>
           {{ with .Params.image }}
-          {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" "" "class" "img-fluid mb-4 rounded" "style" "max-height: 500px; width: 100%; object-fit: cover;" "width" 900) }}
+          {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" "" "class" "img-fluid mb-4 rounded" "style" "max-height: 480px; width: 100%; object-fit: cover;" "width" 900) }}
           {{ end }}
-          <div class="content">
+          <div class="content" style="text-align: justify;">
             {{ .Content }}
           </div>
+
+
+          {{/* ── eBird Trip Report Section ── */}}
+          {{ with .Params.ebird_trip_report_id }}
+          {{ $tripId := . }}
+          {{ $dataKey := printf "t%s" $tripId }}
+          {{ $allTaxa := index $.Site.Data.ebird $dataKey }}
+          {{ if $allTaxa }}
+          {{ $species := where $allTaxa "category" "species" }}
+
+          <div class="ebird-section mt-5 pt-4" style="border-top: 2px solid var(--wnc-border);">
+
+            {{/* ── Header ── */}}
+            <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
+              <h5 class="mb-0 fw-bold">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 100" class="me-2" style="vertical-align:-3px"><circle cx="50" cy="50" r="50" fill="#e8580b"/><path d="M28 62c0-12 8-22 22-22s22 10 22 22" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/><circle cx="50" cy="38" r="7" fill="#fff"/></svg>
+                eBird Trip Report
+              </h5>
+              <a href="https://ebird.org/tripreport/{{ $tripId }}" target="_blank" rel="noopener"
+                 class="btn btn-sm rounded-pill px-3 fw-semibold"
+                 style="background:#e8580b; color:#fff; border:none;">
+                View Trip Report <i class="bi bi-box-arrow-up-right ms-1"></i>
+              </a>
+            </div>
+
+            {{/* ── Stats ── */}}
+            <div class="row g-3 mb-5 text-center">
+              <div class="col-4">
+                <div class="p-3 rounded-3 h-100" style="background:rgba(34,139,34,.08); border:1px solid rgba(34,139,34,.2);">
+                  <div class="fw-bold mb-1" style="font-size:1.75rem; color:#228B22; line-height:1;">{{ $.Params.ebird_num_checklists }}</div>
+                  <small class="text-muted">Checklists</small>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="p-3 rounded-3 h-100" style="background:rgba(232,88,11,.08); border:1px solid rgba(232,88,11,.2);">
+                  <div class="fw-bold mb-1" style="font-size:1.75rem; color:#e8580b; line-height:1;">{{ $.Params.ebird_num_species }}</div>
+                  <small class="text-muted">Species</small>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="p-3 rounded-3 h-100" style="background:rgba(108,117,125,.08); border:1px solid rgba(108,117,125,.2);">
+                  <div class="fw-bold mb-1" style="font-size:1.75rem; color:#6c757d; line-height:1;">{{ $.Params.ebird_num_other_taxa }}</div>
+                  <small class="text-muted">Other Taxa</small>
+                </div>
+              </div>
+            </div>
+
+            {{/* ── Survey Locations Map ── */}}
+            {{ $locKey := printf "locs%s" $tripId }}
+            {{ $locData := index $.Site.Data.ebird $locKey }}
+            {{ if $locData }}
+            <div class="mb-5">
+              <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+                <h6 class="mb-0 fw-bold">
+                  <i class="bi bi-geo-alt-fill me-2" style="color: var(--wnc-green);"></i>Survey Locations
+                </h6>
+                <span class="text-muted" style="font-size:.82rem;">
+                  {{ with $.Params.location_name }}{{ . }} &nbsp;·&nbsp; {{ end }}{{ len $locData.coords }} checklist sites
+                </span>
+              </div>
+              <div id="surveyMap{{ $tripId }}" class="rounded-3" style="height:360px; border:1px solid #dee2e6; z-index:0;"></div>
+              <div class="text-end mt-1">
+                <a href="https://www.openstreetmap.org/#map=10/{{ index $locData.center 0 }}/{{ index $locData.center 1 }}"
+                   target="_blank" rel="noopener" class="text-muted" style="font-size:.78rem;">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>View on OpenStreetMap
+                </a>
+              </div>
+              <script>
+              (function(){
+                var mapId = 'surveyMap{{ $tripId }}';
+                var coords = {{ $locData.coords | jsonify | safeJS }};
+                var bbox   = {{ $locData.bbox   | jsonify | safeJS }};
+                function initMap() {
+                  var el = document.getElementById(mapId);
+                  if (!el || el._leafletMap) return;
+                  var m = L.map(mapId, { zoomControl: true });
+                  el._leafletMap = m;
+                  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                    maxZoom: 18
+                  }).addTo(m);
+                  var group = L.featureGroup();
+                  coords.forEach(function(c) {
+                    L.circleMarker([c[0], c[1]], {
+                      radius: 4.6,
+                      color: '#e8580b',
+                      fillColor: '#e8580b',
+                      fillOpacity: 0.55,
+                      weight: 1
+                    }).addTo(group);
+                  });
+                  group.addTo(m);
+                  m.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]], { padding: [12, 12] });
+                }
+                if (window.L) { initMap(); }
+                else {
+                  var css = document.createElement('link');
+                  css.rel = 'stylesheet';
+                  css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+                  document.head.appendChild(css);
+                  var js = document.createElement('script');
+                  js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+                  js.onload = initMap;
+                  document.head.appendChild(js);
+                }
+              })();
+              </script>
+            </div>
+            {{ end }}
+
+            {{/* ── Notable Records ── */}}
+            {{ with $.Params.ebird_highlights }}
+            <h6 class="text-uppercase fw-bold mb-3" style="letter-spacing:.08em; font-size:.75rem; color:#6c757d;">Notable Records</h6>
+            <div class="row g-2 mb-5">
+              {{ range . }}
+              <div class="col-12 col-sm-6 col-lg-4">
+                {{ $color := "#6c757d" }}
+                {{ if eq .note "Critically Endangered" }}{{ $color = "#c0392b" }}{{ end }}
+                {{ if eq .note "Endangered" }}{{ $color = "#e8580b" }}{{ end }}
+                {{ if eq .note "Vulnerable" }}{{ $color = "#f39c12" }}{{ end }}
+                {{ if eq .note "Near Threatened" }}{{ $color = "#16a085" }}{{ end }}
+                <a href="https://ebird.org/species/{{ .code }}" target="_blank" rel="noopener"
+                   class="d-block h-100 text-decoration-none ebird-row rounded-3 overflow-hidden"
+                   data-wiki="{{ .name }}"
+                   style="color:inherit; border:1px solid #e5e7eb;">
+                  <div style="height:4px; background:{{ $color }};"></div>
+                  <div class="d-flex align-items-start gap-3 p-3 bg-white">
+                    <div class="min-w-0 flex-grow-1">
+                      <div class="fw-semibold lh-sm mb-1" style="font-size:.9rem;">{{ .name }}</div>
+                      <div class="text-muted fst-italic mb-2" style="font-size:.75rem;">{{ .sci }}</div>
+                      <div class="d-flex align-items-center flex-wrap gap-1">
+                        <span class="fw-bold" style="font-size:1rem; color:{{ $color }};">{{ .count }} <span class="fw-normal text-muted" style="font-size:.72rem;">ind.</span></span>
+                        {{ with .note }}<span class="badge rounded-pill" style="background:{{ $color }}1a; color:{{ $color }}; font-size:.68rem; font-weight:600; border:1px solid {{ $color }}40;">{{ . }}</span>{{ end }}
+                      </div>
+                    </div>
+                    <div class="card-bird-img-wrap flex-shrink-0 rounded-circle overflow-hidden d-flex align-items-center justify-content-center"
+                         style="width:52px; height:52px; background:#f3f4f6 center/cover no-repeat; border:2px solid {{ $color }}40;">
+                      <i class="bi bi-feather card-bird-img-placeholder" style="font-size:.9rem; color:#adb5bd;"></i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              {{ end }}
+            </div>
+            {{ end }}
+
+            {{/* ── Full Species List ── */}}
+            <div>
+              <div class="mt-3" id="fullSpeciesList">
+                <div class="rounded-3 border bg-white overflow-hidden">
+                  <div class="px-3 py-2 border-bottom d-flex" style="font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:#6c757d; background:#f8f9fa;">
+                    <span style="min-width:2rem;">#</span>
+                    <span class="flex-grow-1">Species</span>
+                    <span style="min-width:5rem; text-align:right; padding-right:.5rem;">Checklists</span>
+                    <span style="min-width:5rem; text-align:right;">Individuals</span>
+                  </div>
+                  <div id="fullSpeciesListBody"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {{/* Inject species data for charts + JS rendering */}}
+          <style>
+            .ebird-row:hover { background: rgba(232,88,11,.06) !important; }
+            .ebird-row:hover .bi-box-arrow-up-right { opacity: 1 !important; }
+
+            @media print {
+              header, footer, nav, .page-hero, .breadcrumb-bar,
+              .no-print, #fullSpeciesListBody a { display: none !important; }
+              body { font-size: 11pt; color: #000; }
+              .ebird-section { border-top: none !important; margin-top: 0 !important; padding-top: 0 !important; }
+              .print-title { display: block !important; }
+              .container, .col-lg-8 { max-width: 100% !important; width: 100% !important; padding: 0 !important; }
+              .row { display: flex !important; }
+              section.py-5 { padding: 0 !important; }
+              a[href]::after { content: none !important; }
+              #fullSpeciesListBody a { color: #000 !important; }
+            }
+          </style>
+
+          {{/* Print-only title block shown at top of printout */}}
+          <div class="print-title" style="display:none; margin-bottom:1.5rem;">
+            <div style="font-size:1.4rem; font-weight:700; margin-bottom:.25rem;">{{ $.Title }}</div>
+            <div style="font-size:.88rem; color:#555;">
+              {{ $.Date.Format "02 January 2006" }}
+              {{ with $.Params.location_name }} &nbsp;·&nbsp; {{ . }}{{ end }}
+            </div>
+            <hr style="margin:.75rem 0;">
+          </div>
+          <script>
+          (function(){
+            var ebirdSpecies = {{ $species | jsonify | safeJS }};
+            var totalChecklists = {{ $.Params.ebird_num_checklists }};
+            var tripId = "{{ $tripId }}";
+
+            /* ── Full Species List ── */
+            var sorted = ebirdSpecies.slice().sort(function(a,b){
+              if (b.numChecklists !== a.numChecklists) return b.numChecklists - a.numChecklists;
+              return b.numIndividuals - a.numIndividuals;
+            });
+            var listBody = document.getElementById('fullSpeciesListBody');
+            listBody.innerHTML = sorted.map(function(s, i){
+              return '<a href="https://ebird.org/species/' + s.speciesCode + '" target="_blank" rel="noopener" ' +
+                'class="d-flex align-items-center px-3 py-2 border-bottom text-decoration-none ebird-row" ' +
+                'style="font-size:.85rem; color:inherit; transition:background .15s;">' +
+                '<span class="text-muted me-2 flex-shrink-0" style="min-width:2rem; text-align:right; font-size:.78rem;">' + (i+1) + '</span>' +
+                '<div class="flex-grow-1 min-w-0">' +
+                  '<span class="fw-medium">' + s.commonName + '</span>' +
+                  '<small class="text-muted fst-italic ms-2 d-none d-sm-inline">' + s.sciName + '</small>' +
+                '</div>' +
+                '<span class="ms-2 flex-shrink-0 text-muted" style="min-width:5rem; text-align:right; padding-right:.5rem; font-size:.82rem;">' + s.numChecklists + '</span>' +
+                '<span class="ms-2 flex-shrink-0 text-muted" style="min-width:5rem; text-align:right; font-size:.82rem;">' + s.numIndividuals + '</span>' +
+                '<i class="bi bi-box-arrow-up-right ms-2 flex-shrink-0 text-muted" style="font-size:.7rem; opacity:0; transition:opacity .15s;"></i>' +
+              '</a>';
+            }).join('');
+
+          /* ── Bird images from Wikipedia ── */
+          document.querySelectorAll('.ebird-row[data-wiki]').forEach(function(card) {
+            var name = card.dataset.wiki;
+            fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(name))
+              .then(function(r) { return r.json(); })
+              .then(function(data) {
+                if (data.thumbnail && data.thumbnail.source) {
+                  var url = data.thumbnail.source.replace(/\/\d+px-/, '/400px-');
+                  var wrap = card.querySelector('.card-bird-img-wrap');
+                  var placeholder = card.querySelector('.card-bird-img-placeholder');
+                  var tempImg = new Image();
+                  tempImg.onload = function() {
+                    wrap.style.backgroundImage = 'url(' + url + ')';
+                    placeholder.style.display = 'none';
+                  };
+                  tempImg.src = url;
+                }
+              }).catch(function(){});
+          });
+          })();
+          </script>
+
+          {{ end }}
+          {{ end }}
+
           <div class="mt-4 pt-3 border-top">
             <a href="{{ "/news/" | relURL }}" class="btn btn-theme"><i class="bi bi-arrow-left me-1"></i> Back to News</a>
           </div>
@@ -60,3 +313,4 @@
 </section>
 {{ end }}
 {{ end }}
+

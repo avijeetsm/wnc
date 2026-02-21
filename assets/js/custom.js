@@ -20,19 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ---- Fade-in on scroll ---- */
-  const faders = document.querySelectorAll('.fade-up');
-  if (faders.length && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    faders.forEach(function (el) { observer.observe(el); });
-  }
 
   /* ---- Event popup: show on every load, respects data-display-until ---- */
   var popupEl = document.getElementById('eventPopupModal');

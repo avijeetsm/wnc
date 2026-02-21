@@ -20,8 +20,8 @@
   {{- end -}}
   <picture>
     <source srcset="{{ $resized.RelPermalink }}" type="image/webp">
-    <img src="{{ $fallback.RelPermalink }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }}{{ with $style }} style="{{ . }}"{{ end }}{{ with $onclick }} onclick="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="async">
+    <img src="{{ $fallback.RelPermalink }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }}{{ with $style }} style="{{ $style | safeCSS }}"{{ end }}{{ with $onclick }} onclick="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="async">
   </picture>
 {{- else -}}
-  <img src="{{ printf "/%s" $src }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }}{{ with $style }} style="{{ . }}"{{ end }}{{ with $onclick }} onclick="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="async">
+  <img src="{{ printf "/%s" $src }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }}{{ with $style }} style="{{ $style | safeCSS }}"{{ end }}{{ with $onclick }} onclick="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="async">
 {{- end -}}
