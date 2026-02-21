@@ -113,11 +113,11 @@
                   var group = L.featureGroup();
                   coords.forEach(function(c) {
                     L.circleMarker([c[0], c[1]], {
-                      radius: 4.6,
+                      radius: 3.5,
                       color: '#e8580b',
                       fillColor: '#e8580b',
-                      fillOpacity: 0.55,
-                      weight: 1
+                      fillOpacity: 0.2,
+                      weight: 0.6
                     }).addTo(group);
                   });
                   group.addTo(m);
