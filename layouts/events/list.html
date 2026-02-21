@@ -5,17 +5,67 @@
 <section class="section-padding bg-cream">
   <div class="container">
 
-    {{/* Split into upcoming (future/recent) and past */}}
-    {{ $all := .Pages.ByDate.Reverse }}
-    {{ $upcoming := first 3 $all }}
-    {{ $past := after 3 $all }}
+    {{/* Split into upcoming, recent (≤3 months), and archive (>3 months) */}}
+    {{ $now := now }}
+    {{ $threeMonthsAgo := $now.AddDate 0 -3 0 }}
+    {{ $upcoming := slice }}
+    {{ $recent := slice }}
+    {{ $archive := slice }}
+    {{ range .Pages }}
+      {{ $evDate := .Date }}
+      {{ with .Params.event_date }}{{ $evDate = time . }}{{ end }}
+      {{ if $evDate.After $now }}
+        {{ $upcoming = $upcoming | append . }}
+      {{ else if $evDate.After $threeMonthsAgo }}
+        {{ $recent = $recent | append . }}
+      {{ else }}
+        {{ $archive = $archive | append . }}
+      {{ end }}
+    {{ end }}
+    {{ $recent = sort $recent "Date" "desc" }}
+    {{ $archive = sort $archive "Date" "desc" }}
 
-    <!-- Featured / Recent Events -->
+    <!-- Upcoming Events -->
+    {{ if $upcoming }}
+    <div class="mb-5">
+      <span class="section-tag">Upcoming</span>
+      <h2 class="section-heading mb-4">Upcoming Events</h2>
+      <div class="row g-4">
+        {{ range $upcoming }}
+        {{ $event := . }}
+        {{ $evDate := $event.Date }}{{ with $event.Params.event_date }}{{ $evDate = time . }}{{ end }}
+        <div class="col-md-4 fade-up">
+          <article class="event-card">
+            {{ with $event.Params.image }}
+            <a href="{{ $event.RelPermalink }}" class="event-card-img">
+              {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" $event.Title "width" 500) }}
+              <div class="event-card-date">
+                <span class="day">{{ $evDate.Format "02" }}</span>
+                <span class="month">{{ $evDate.Format "Jan" }}</span>
+                <span class="year">{{ $evDate.Format "2006" }}</span>
+              </div>
+            </a>
+            {{ end }}
+            <div class="event-card-body">
+              <h5><a href="{{ $event.RelPermalink }}">{{ $event.Title }}</a></h5>
+              <p>{{ $event.Summary | plainify | htmlUnescape | truncate 120 }}</p>
+              <a href="{{ $event.RelPermalink }}" class="read-more">Details <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <!-- Recent Events (last 3 months) -->
+    {{ if $recent }}
     <div class="mb-5">
       <span class="section-tag">Recent</span>
       <h2 class="section-heading mb-4">Recent Events</h2>
       <div class="row g-4">
-        {{ range $i, $event := $upcoming }}
+        {{ range $recent }}
+        {{ $event := . }}
         <div class="col-md-4 fade-up">
           <article class="event-card">
             {{ with $event.Params.image }}
@@ -38,14 +88,15 @@
         {{ end }}
       </div>
     </div>
+    {{ end }}
 
-    <!-- Past Events -->
-    {{ if $past }}
+    <!-- Past Events (older than 3 months) -->
+    {{ if $archive }}
     <div class="mt-5">
       <span class="section-tag">Archive</span>
       <h2 class="section-heading mb-4">Past Events</h2>
       <div class="row g-4">
-        {{ range $past }}
+        {{ range $archive }}
         <div class="col-md-6 fade-up">
           <article class="event-list-item">
             <div class="row g-0 align-items-center">
