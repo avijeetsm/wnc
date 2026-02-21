@@ -558,6 +558,7 @@ img { max-width: 100%; }
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .news-card-v2:hover {
   transform: translateY(-4px);
@@ -1288,13 +1289,7 @@ footer a:hover { color: var(--wnc-green-light) !important; }
    ANIMATIONS & MICRO-INTERACTIONS
    ======================================== */
 .fade-up {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.fade-up.visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
 /* Navbar shrink on scroll */

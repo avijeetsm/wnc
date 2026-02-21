@@ -41,18 +41,21 @@
     <h2 class="section-heading mb-4">News Archive</h2>
     <div class="row g-4">
       {{ range $rest }}
+      {{- $link := .RelPermalink -}}
+      {{- $title := .Title -}}
+      {{- $date := .Date -}}
       <div class="col-md-6 col-lg-4 fade-up">
         <article class="news-card-v2">
           {{ with .Params.image }}
-          <a href="{{ $.RelPermalink }}" class="news-card-img">
-            {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" $.Title "width" 500) }}
-            <span class="news-date-overlay">{{ $.Date.Format "02 Jan 2006" }}</span>
-          </a>
+          <div class="news-card-img">
+            {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" $title "width" 500) }}
+            <span class="news-date-overlay">{{ $date.Format "02 Jan 2006" }}</span>
+          </div>
           {{ end }}
           <div class="news-card-body">
-            <h5><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+            <h5>{{ $title }}</h5>
             <p>{{ .Summary | plainify | htmlUnescape | truncate 100 }}</p>
-            <a href="{{ .RelPermalink }}" class="read-more">Read More <i class="bi bi-arrow-right"></i></a>
+            <a href="{{ $link }}" class="read-more stretched-link">Read More <i class="bi bi-arrow-right"></i></a>
           </div>
         </article>
       </div>
