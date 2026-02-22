@@ -66,15 +66,16 @@
       <div class="row g-4">
         {{ range $recent }}
         {{ $event := . }}
+        {{ $evDate := $event.Date }}{{ with $event.Params.event_date }}{{ $evDate = time . }}{{ end }}
         <div class="col-md-4 fade-up">
           <article class="event-card">
             {{ with $event.Params.image }}
             <a href="{{ $event.RelPermalink }}" class="event-card-img">
               {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" $event.Title "width" 500) }}
               <div class="event-card-date">
-                <span class="day">{{ $event.Date.Format "02" }}</span>
-                <span class="month">{{ $event.Date.Format "Jan" }}</span>
-                <span class="year">{{ $event.Date.Format "2006" }}</span>
+                <span class="day">{{ $evDate.Format "02" }}</span>
+                <span class="month">{{ $evDate.Format "Jan" }}</span>
+                <span class="year">{{ $evDate.Format "2006" }}</span>
               </div>
             </a>
             {{ end }}

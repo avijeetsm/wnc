@@ -266,13 +266,15 @@
         <h2 class="section-heading mb-4">Events</h2>
         {{ range first 3 (where .Site.RegularPages "Section" "events") }}
         <div class="event-item">
+          {{ $evtDate := .Date }}
+          {{ with .Params.event_date }}{{ $evtDate = (time .) }}{{ end }}
           <div class="event-date-badge">
-            <span class="day">{{ .Date.Format "02" }}</span>
-            <span class="month">{{ .Date.Format "Jan" }}</span>
+            <span class="day">{{ $evtDate.Format "02" }}</span>
+            <span class="month">{{ $evtDate.Format "Jan" }}</span>
           </div>
           <div class="event-info">
             <h6><a href="{{ .RelPermalink }}">{{ .Title }}</a></h6>
-            <span class="event-year">{{ .Date.Format "2006" }}</span>
+            <span class="event-year">{{ $evtDate.Format "2006" }}</span>
           </div>
         </div>
         {{ end }}

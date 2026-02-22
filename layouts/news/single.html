@@ -23,13 +23,87 @@
             <span><i class="bi bi-calendar3 me-1"></i>{{ .Date.Format "02 January 2006" }}</span>
             {{ with .Params.author }}<span><i class="bi bi-person me-1"></i>{{ . }}</span>{{ end }}
           </div>
+          {{ if .Params.gallery }}
+          {{/* ── Gallery carousel in place of hero image ── */}}
+          {{ $images := .Params.gallery }}
+          <div class="gallery-carousel mb-4" id="gallery-{{ $.Page.File.UniqueID }}">
+            <div class="gc-stage">
+              <button class="gc-arrow gc-prev" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+              <div class="gc-slides">
+                {{ range $i, $img := $images }}
+                <div class="gc-slide{{ if eq $i 0 }} active{{ end }}">
+                  {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" $img) "alt" (printf "Gallery photo %d" (add $i 1)) "class" "gc-img" "width" 1200) }}
+                </div>
+                {{ end }}
+              </div>
+              <button class="gc-arrow gc-next" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
+              <div class="gc-counter">1 / {{ len $images }}</div>
+            </div>
+            <div class="gc-thumbs-wrap">
+              <button class="gc-thumb-arrow gc-thumb-prev" aria-label="Scroll thumbnails left">&#8249;</button>
+              <div class="gc-thumbs">
+                {{ range $i, $img := $images }}
+                <button class="gc-thumb{{ if eq $i 0 }} active{{ end }}" data-index="{{ $i }}" aria-label="Go to photo {{ add $i 1 }}">
+                  {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" $img) "alt" (printf "Thumbnail %d" (add $i 1)) "class" "gc-thumb-img" "width" 160) }}
+                </button>
+                {{ end }}
+              </div>
+              <button class="gc-thumb-arrow gc-thumb-next" aria-label="Scroll thumbnails right">&#8250;</button>
+            </div>
+          </div>
+          <script>
+          (function(){
+            var wrap   = document.getElementById('gallery-{{ $.Page.File.UniqueID }}');
+            var slides = wrap.querySelectorAll('.gc-slide');
+            var thumbs = wrap.querySelectorAll('.gc-thumb');
+            var counter= wrap.querySelector('.gc-counter');
+            var total  = slides.length;
+            var cur    = 0;
+            function go(idx) {
+              slides[cur].classList.remove('active');
+              thumbs[cur].classList.remove('active');
+              cur = (idx + total) % total;
+              slides[cur].classList.add('active');
+              thumbs[cur].classList.add('active');
+              counter.textContent = (cur + 1) + ' / ' + total;
+              // Scroll strip so active thumb is second from left (one thumb visible to its left)
+              var strip = thumbStrip;
+              var th = thumbs[cur];
+              var stripRect = strip.getBoundingClientRect();
+              var thRect = th.getBoundingClientRect();
+              // Position of thumb's left edge within the scrollable content
+              var thScrollLeft = strip.scrollLeft + thRect.left - stripRect.left;
+              var targetScroll = Math.max(0, thScrollLeft - th.offsetWidth - 6);
+              strip.scrollTo({ left: targetScroll, behavior: 'smooth' });
+            }
+            wrap.querySelector('.gc-prev').addEventListener('click', function(){ go(cur - 1); });
+            wrap.querySelector('.gc-next').addEventListener('click', function(){ go(cur + 1); });
+            thumbs.forEach(function(btn) {
+              btn.addEventListener('click', function(){ go(parseInt(btn.dataset.index, 10)); });
+            });
+            var thumbStrip = wrap.querySelector('.gc-thumbs');
+            wrap.querySelector('.gc-thumb-prev').addEventListener('click', function(){
+              thumbStrip.scrollBy({ left: -300, behavior: 'smooth' });
+            });
+            wrap.querySelector('.gc-thumb-next').addEventListener('click', function(){
+              thumbStrip.scrollBy({ left: 300, behavior: 'smooth' });
+            });
+            document.addEventListener('keydown', function(e) {
+              if (e.key === 'ArrowLeft')  go(cur - 1);
+              if (e.key === 'ArrowRight') go(cur + 1);
+            });
+          })();
+          </script>
+          {{ else }}
+          {{/* ── Single hero image ── */}}
           {{ with .Params.image }}
           {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" "" "class" "img-fluid mb-4 rounded" "style" "max-height: 480px; width: 100%; object-fit: cover;" "width" 900) }}
           {{ end }}
+          {{ end }}
+
           <div class="content" style="text-align: justify;">
             {{ .Content }}
           </div>
-
 
           {{/* ── eBird Trip Report Section ── */}}
           {{ with .Params.ebird_trip_report_id }}
