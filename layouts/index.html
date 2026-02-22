@@ -264,21 +264,40 @@
       <div class="col-lg-5 mb-4">
         <span class="section-tag">Upcoming</span>
         <h2 class="section-heading mb-4">Events</h2>
-        {{ range first 3 (where .Site.RegularPages "Section" "events") }}
-        <div class="event-item">
+        {{/* Find the nearest upcoming event using event_date */}}
+        {{ $now := now }}
+        {{ $nextEvent := false }}
+        {{ range sort (where .Site.RegularPages "Section" "events") "Date" "asc" }}
           {{ $evtDate := .Date }}
           {{ with .Params.event_date }}{{ $evtDate = (time .) }}{{ end }}
-          <div class="event-date-badge">
-            <span class="day">{{ $evtDate.Format "02" }}</span>
-            <span class="month">{{ $evtDate.Format "Jan" }}</span>
-          </div>
-          <div class="event-info">
-            <h6><a href="{{ .RelPermalink }}">{{ .Title }}</a></h6>
-            <span class="event-year">{{ $evtDate.Format "2006" }}</span>
-          </div>
-        </div>
+          {{ if and (not $nextEvent) ($evtDate.After $now) }}
+            {{ $nextEvent = . }}
+          {{ end }}
         {{ end }}
-        <a class="btn btn-sm btn-outline-dark mt-2" href="{{ "/events/" | relURL }}">All Events <i class="bi bi-arrow-right ms-1"></i></a>
+        {{ if $nextEvent }}
+          {{ $evtDate := $nextEvent.Date }}
+          {{ with $nextEvent.Params.event_date }}{{ $evtDate = (time .) }}{{ end }}
+          <a href="{{ $nextEvent.RelPermalink }}" class="event-card-h">
+            {{ with $nextEvent.Params.image }}
+            <div class="event-card-h-img">
+              {{ partial "img.html" (dict "src" (strings.TrimPrefix "/" .) "alt" $nextEvent.Title "width" 400) }}
+              <div class="event-card-date">
+                <span class="day">{{ $evtDate.Format "02" }}</span>
+                <span class="month">{{ $evtDate.Format "Jan" }}</span>
+                <span class="year">{{ $evtDate.Format "2006" }}</span>
+              </div>
+            </div>
+            {{ end }}
+            <div class="event-card-h-body">
+              <h5>{{ $nextEvent.Title }}</h5>
+              <p>{{ $nextEvent.Summary | plainify | htmlUnescape | truncate 140 }}</p>
+              <span class="read-more">Read More <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </a>
+        {{ else }}
+          <p class="text-muted">No upcoming events at the moment. Check back soon!</p>
+        {{ end }}
+        <a class="btn btn-sm btn-outline-dark mt-3" href="{{ "/events/" | relURL }}">All Events <i class="bi bi-arrow-right ms-1"></i></a>
       </div>
     </div>
   </div>
