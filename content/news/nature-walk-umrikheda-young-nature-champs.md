@@ -1,6 +1,7 @@
 ---
 title: "Nature walk at Umrikheda with Our Young Nature Champs!"
 date: 2026-02-15
+description: "WNC team welcomed children from SPS Sanstha to Umrikheda Eco Tourism Park for a nature trail filled with bird identification, tree awareness, snake education, and interactive games."
 image: "/images/content/umrikheda-nature-walk/umrikheda-01.jpeg"
 gallery:
   - "/images/content/umrikheda-nature-walk/umrikheda-01.jpeg"
