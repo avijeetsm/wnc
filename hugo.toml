@@ -96,7 +96,9 @@ summaryLength = 30
     [markup.goldmark.renderer]
       unsafe = true
 
+disableKinds = ["taxonomy", "term"]
+
 [outputs]
   home = ["HTML", "Sitemap", "RSS"]
-  section = ["HTML", "Sitemap", "RSS"]
+  section = ["HTML", "RSS"]
   page = ["HTML"]

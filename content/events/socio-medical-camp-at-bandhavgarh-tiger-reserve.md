@@ -2,6 +2,9 @@
 title: "Socio Medical Camp at Bandhavgarh Tiger Reserve"
 date: 2024-07-27
 image: "/images/content/socio-medical-camp-bandhavgarh.jpeg"
+noindex: true
+_build:
+  list: never
 ---
 
 We are organizing one of our annual events as a part of our conservation activities. A socio-medical camp at Bandhavgarh Tiger Reserve on 27th July 2024.
