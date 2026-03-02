@@ -973,6 +973,10 @@ footer a:hover { color: var(--wnc-green-light) !important; }
   gap: 12px;
   align-items: stretch;
 }
+.gallery-grid picture {
+  display: block;
+  cursor: pointer;
+}
 .gallery-grid img {
   width: 100%; height: 260px; object-fit: cover;
   cursor: pointer; border-radius: var(--radius);
@@ -1004,11 +1008,29 @@ footer a:hover { color: var(--wnc-green-light) !important; }
   pointer-events: all;
 }
 .lightbox-overlay img {
-  max-width: 90vw;
-  max-height: 85vh;
+  width: auto;
+  height: auto;
+  max-width: 92vw;
+  max-height: 88vh;
+  min-width: min(600px, 92vw);
   object-fit: contain;
   border-radius: var(--radius);
   box-shadow: 0 8px 40px rgba(0,0,0,.5);
+  display: block;
+}
+@media (max-width: 767px) {
+  .lightbox-overlay img {
+    min-width: 0;
+    max-width: 96vw;
+    max-height: 80vh;
+  }
+  .lightbox-nav {
+    width: 36px;
+    height: 48px;
+    font-size: 1.8rem;
+  }
+  .lightbox-prev { left: 4px; }
+  .lightbox-next { right: 4px; }
 }
 .lightbox-close {
   position: absolute;
