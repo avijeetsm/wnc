@@ -3,6 +3,7 @@ title: "Butterfly and Nature Trail | Lodhiya Kund"
 date: 2026-10-18
 image: "/images/content/lodhiya-kund-nature-walk/lohiya-kund-0.jpeg"
 gallery:
+  - "/images/content/lodhiya-kund-nature-walk/lohiya-kund-0.jpeg"
   - "/images/content/lodhiya-kund-nature-walk/lohiya-kund-1.jpeg"
   - "/images/content/lodhiya-kund-nature-walk/lohiya-kund-2.jpeg"
   - "/images/content/lodhiya-kund-nature-walk/lohiya-kund-3.jpeg"
