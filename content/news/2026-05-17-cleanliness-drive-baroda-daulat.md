@@ -1,5 +1,5 @@
 ---
-title: "Nature Through Lens | Photography Exhibition"
+title: "Cleanliness Drive | Baroda Daulat Lake"
 date: 2026-05-17
 image: "/images/content/baroda-daulat-cleanliness/bdcd2.png"
 gallery:
