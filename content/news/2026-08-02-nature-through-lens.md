@@ -17,15 +17,17 @@ gallery:
 The 2-Day Wildlife Photography Exhibition by Wildlife & Nature Conservancy (WNC) has been successfully inaugurated with Chief Guest as
 
 • *Shri Vinod Rathore*– Deputy Collector
+
 • *Smt. Poornima Chourasiya Rathore* – Joint Commissioner, GST, Indore
 
+
 With the esteemed presence of:
-• *Hon’ble Justice Subodh Abhyankar* – Judge, High Court of Madhya Pradesh
-• *Shri Sanjay Kumar Shukla* – Chief Secretary (Home), Government of Madhya Pradesh
-• *Shri Bhaskar Lakshyakar*– Commissioner, Indore Division
-• *Shri Shivam Verma*– Collector, Indore
-• *Shri R. K. Singh* – Additional Commissioner, Indore Division
-• *Shri Manish Sharma*– District Judge
+- *Hon’ble Justice Subodh Abhyankar* – Judge, High Court of Madhya Pradesh
+- *Shri Sanjay Kumar Shukla* – Chief Secretary (Home), Government of Madhya Pradesh
+- *Shri Bhaskar Lakshyakar*– Commissioner, Indore Division
+- *Shri Shivam Verma*– Collector, Indore
+- *Shri R. K. Singh* – Additional Commissioner, Indore Division
+- *Shri Manish Sharma*– District Judge
 
 Organized to promote wildlife conservation awareness through the art of photography, the exhibition celebrates the beauty and diversity of our natural heritage while inspiring collective responsibility towards its protection.
 
